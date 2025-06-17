@@ -40,24 +40,11 @@ jobs:
           projectPath: LandlordSimulator
           allowDirtyBuild: true
 
-      # Build Page
-      - name: Build page
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - run: |
-          cd astro
-          npm install
-          npm run cp:model
-          npm run cp:game
-          npm run build
-
       # Upload to itch.io
       - name: Upload to itch.io project
         uses: robpc/itchio-upload-action@v1
         with:
-          path: astro/dist
+          path: build/WebGL/WebGL
           project: gongbaodd/landlord-simulator
           channel: html5
           api-key: ${{ secrets.ITCHIO_API_KEY }}
