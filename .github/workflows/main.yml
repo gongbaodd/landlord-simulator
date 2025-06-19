@@ -28,7 +28,7 @@ jobs:
       - name: Upload to itch.io project
         uses: robpc/itchio-upload-action@v1
         with:
-          path: ./build/${{ matrix.platform }}
+          path: /build/${{ matrix.platform }}
           project: gongbaodd/landlord-simulator
           channel: html5
           api-key: ${{ secrets.ITCHIO_API_KEY }}
@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Build
-          path: ./build/${{ matrix.platform }}
+          path: /build/${{ matrix.platform }}
 
       # Send Notification
       - name: Discord notification
