@@ -1,65 +1,65 @@
-name: Actions 😎
+# name: Actions 😎
 
-on:
-  push:
-    branches:
-      - main
-    paths: 
-      - 'LandlordSimulator/**'
-      - '.github/workflows/main.yml'
+# on:
+#   push:
+#     branches:
+#       - main
+#     paths: 
+#       - 'LandlordSimulator/**'
+#       - '.github/workflows/main.yml'
 
-jobs:
-  build:
-    name: Build my project ✨
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          lfs: false
+# jobs:
+#   build:
+#     name: Build my project ✨
+#     runs-on: ubuntu-latest
+#     steps:
+#       # Checkout
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+#         with:
+#           lfs: false
 
-      # Cache
-      - uses: actions/cache@v4
-        with:
-          path: |
-            LandlordSimulator/Assets
-            LandlordSimulator/Packages
-            LandlordSimulator/ProjectSettings
-          key: Library-${{ hashFiles('LandlordSimulator/Assets/**', 'LandlordSimulator/Packages/**', 'LandlordSimulator/ProjectSettings/**') }}
+#       # Cache
+#       - uses: actions/cache@v4
+#         with:
+#           path: |
+#             LandlordSimulator/Assets
+#             LandlordSimulator/Packages
+#             LandlordSimulator/ProjectSettings
+#           key: Library-${{ hashFiles('LandlordSimulator/Assets/**', 'LandlordSimulator/Packages/**', 'LandlordSimulator/ProjectSettings/**') }}
 
-      # Build
-      - name: Build project
-        uses: game-ci/unity-builder@v4
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        with:
-          targetPlatform: WebGL
-          projectPath: LandlordSimulator
-          allowDirtyBuild: true
+#       # Build
+#       - name: Build project
+#         uses: game-ci/unity-builder@v4
+#         env:
+#           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+#           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+#           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+#         with:
+#           targetPlatform: WebGL
+#           projectPath: LandlordSimulator
+#           allowDirtyBuild: true
 
-      # Upload to itch.io
-      - name: Upload to itch.io project
-        uses: robpc/itchio-upload-action@v1
-        with:
-          path: build/WebGL/WebGL
-          project: gongbaodd/landlord-simulator
-          channel: html5
-          api-key: ${{ secrets.ITCHIO_API_KEY }}
+#       # Upload to itch.io
+#       - name: Upload to itch.io project
+#         uses: robpc/itchio-upload-action@v1
+#         with:
+#           path: build/WebGL/WebGL
+#           project: gongbaodd/landlord-simulator
+#           channel: html5
+#           api-key: ${{ secrets.ITCHIO_API_KEY }}
 
-      # Output
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Build
-          path: astro/dist
+#       # Output
+#       - name: Upload build artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: Build
+#           path: astro/dist
 
-      # Send Notification
-      - name: Discord notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@0.3.2
-        with:
-          args: "✅ The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.\n Commit message: ${{ github.event.head_commit.message }}\n repository URL: ${{ github.event.repository.url }}\n website URL: https://gongbaodd.itch.io/landlord-simulator"
+#       # Send Notification
+#       - name: Discord notification
+#         env:
+#           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+#         uses: Ilshidur/action-discord@0.3.2
+#         with:
+#           args: "✅ The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.\n Commit message: ${{ github.event.head_commit.message }}\n repository URL: ${{ github.event.repository.url }}\n website URL: https://gongbaodd.itch.io/landlord-simulator"
