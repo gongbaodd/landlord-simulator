@@ -23,7 +23,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir -p build/${{ matrix.platform }}
-          godot -v --export-release "${{ matrix.platform }}" --headless
+          godot -v --export-release "${{ matrix.platform }}" build/${{ matrix.platform }}/index.html --headless
       # Upload to itch.io
       # - name: Upload to itch.io project
       #   uses: robpc/itchio-upload-action@v1
@@ -35,7 +35,8 @@ jobs:
 
       - name: "Show Results"
         run: |
-          ls build/${{ matrix.platform }}
+          sudo apt-get install tree
+          tree build
 
       # Output
       - name: Upload build artifact
