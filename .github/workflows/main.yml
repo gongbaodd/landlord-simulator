@@ -24,14 +24,15 @@ jobs:
         run: |
           mkdir -p build/${{ matrix.platform }}
           godot -v --export-release "${{ matrix.platform }}" --headless
+          ls build/${{ matrix.platform }}
       # Upload to itch.io
-      - name: Upload to itch.io project
-        uses: robpc/itchio-upload-action@v1
-        with:
-          path: build/${{ matrix.platform }}
-          project: gongbaodd/landlord-simulator
-          channel: html5
-          api-key: ${{ secrets.ITCHIO_API_KEY }}
+      # - name: Upload to itch.io project
+      #   uses: robpc/itchio-upload-action@v1
+      #   with:
+      #     path: build/${{ matrix.platform }}
+      #     project: gongbaodd/landlord-simulator
+      #     channel: html5
+      #     api-key: ${{ secrets.ITCHIO_API_KEY }}
 
       # Output
       - name: Upload build artifact
