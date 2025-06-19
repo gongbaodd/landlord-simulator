@@ -1,65 +1,45 @@
-# name: Actions 😎
+name: CI
 
-# on:
-#   push:
-#     branches:
-#       - main
-#     paths: 
-#       - 'LandlordSimulator/**'
-#       - '.github/workflows/main.yml'
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+        fail-fast: true
+        matrix:
+            platform:
+                - html5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: chickensoft-games/setup-godot@v2.2.0
+        with:
+          version: 4.4.1
+          include-templates: true
+          use-dotnet: false
+      - name: Web Build
+        run: |
+          mkdir -p build/${{ matrix.platform }}
+          godot -v --export-release "${{ matrix.platform }}" --headless
+      # Upload to itch.io
+      - name: Upload to itch.io project
+        uses: robpc/itchio-upload-action@v1
+        with:
+          path: ./build/${{ matrix.platform }}
+          project: gongbaodd/landlord-simulator
+          channel: html5
+          api-key: ${{ secrets.ITCHIO_API_KEY }}
 
-# jobs:
-#   build:
-#     name: Build my project ✨
-#     runs-on: ubuntu-latest
-#     steps:
-#       # Checkout
-#       - name: Checkout repository
-#         uses: actions/checkout@v4
-#         with:
-#           lfs: false
+      # Output
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Build
+          path: ./build/${{ matrix.platform }}
 
-#       # Cache
-#       - uses: actions/cache@v4
-#         with:
-#           path: |
-#             LandlordSimulator/Assets
-#             LandlordSimulator/Packages
-#             LandlordSimulator/ProjectSettings
-#           key: Library-${{ hashFiles('LandlordSimulator/Assets/**', 'LandlordSimulator/Packages/**', 'LandlordSimulator/ProjectSettings/**') }}
-
-#       # Build
-#       - name: Build project
-#         uses: game-ci/unity-builder@v4
-#         env:
-#           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-#           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-#           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-#         with:
-#           targetPlatform: WebGL
-#           projectPath: LandlordSimulator
-#           allowDirtyBuild: true
-
-#       # Upload to itch.io
-#       - name: Upload to itch.io project
-#         uses: robpc/itchio-upload-action@v1
-#         with:
-#           path: build/WebGL/WebGL
-#           project: gongbaodd/landlord-simulator
-#           channel: html5
-#           api-key: ${{ secrets.ITCHIO_API_KEY }}
-
-#       # Output
-#       - name: Upload build artifact
-#         uses: actions/upload-artifact@v4
-#         with:
-#           name: Build
-#           path: astro/dist
-
-#       # Send Notification
-#       - name: Discord notification
-#         env:
-#           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-#         uses: Ilshidur/action-discord@0.3.2
-#         with:
-#           args: "✅ The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.\n Commit message: ${{ github.event.head_commit.message }}\n repository URL: ${{ github.event.repository.url }}\n website URL: https://gongbaodd.itch.io/landlord-simulator"
+      # Send Notification
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: "✅ The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.\n Commit message: ${{ github.event.head_commit.message }}\n repository URL: ${{ github.event.repository.url }}\n website URL: https://gongbaodd.itch.io/landlord-simulator"
