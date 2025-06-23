@@ -162,8 +162,8 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_s0ab6")
-advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
+advance_expression_base_node = NodePath("..")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 32

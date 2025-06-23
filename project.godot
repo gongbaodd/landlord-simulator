@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LandlordSimulation"
-run/main_scene="res://scenes/samples/main_menu.tscn"
+run/main_scene="res://scenes/mani_menu_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
@@ -29,8 +29,9 @@ CameraShakeManager="*res://scenes/preloads/camera_shake_manager.tscn"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1280
 window/size/resizable=false
-window/stretch/mode="canvas_items"
 
 [dotnet]
 
