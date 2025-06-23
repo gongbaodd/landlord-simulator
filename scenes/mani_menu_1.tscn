@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://unq55it0ojkd" path="res://fonts/ZCOOLKuaiLe-Regular.ttf" id="2_aq3n0"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="5_eful8"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="6_n7sms"]
-[ext_resource type="PackedScene" uid="uid://clnfq2gqweyhp" path="res://scenes/samples/top_down_sample.tscn" id="7_nrqjr"]
+[ext_resource type="PackedScene" uid="uid://bylqa06xcb44o" path="res://scenes/game_scene_dev.tscn" id="7_p260q"]
 [ext_resource type="PackedScene" path="res://scenes/scene_transitions/circle_transition.tscn" id="8_lkcag"]
 [ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="9_4m6an"]
 
@@ -138,7 +138,7 @@ script = ExtResource("6_n7sms")
 start_button = NodePath("../MarginContainer/VBoxContainer/start_button")
 settings_button = NodePath("../MarginContainer/VBoxContainer/settings_button")
 exit_button = NodePath("../MarginContainer/VBoxContainer/exit_button")
-start_scene_path = ExtResource("7_nrqjr")
+start_scene_path = ExtResource("7_p260q")
 transition_path = ExtResource("8_lkcag")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu"]

@@ -156,6 +156,7 @@ radius = 175.82
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(834, 111)
+zoom = Vector2(1, 1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("8_gyc27")
