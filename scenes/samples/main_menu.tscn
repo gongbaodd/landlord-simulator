@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/ui/audio_menu.gd" id="4_mjs4o"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="6_8dq4u"]
 [ext_resource type="PackedScene" uid="uid://clnfq2gqweyhp" path="res://scenes/samples/top_down_sample.tscn" id="8_blece"]
-[ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
+[ext_resource type="PackedScene" uid="uid://ja7h1ee1td4k" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="FontFile" uid="uid://unq55it0ojkd" path="res://fonts/ZCOOLKuaiLe-Regular.ttf" id="10_xmtnf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
