@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://svki2kvps1ls"]
 
-[ext_resource type="Script" path="res://scenes/game_scenes/dev_button.gd" id="1_jyvl7"]
+[ext_resource type="Script" path="res://scenes/game_scenes/dev/dev_button.gd" id="1_jyvl7"]
 [ext_resource type="PackedScene" uid="uid://chee17ae0u5op" path="res://scenes/samples/main_menu.tscn" id="2_wv75s"]
 
 [node name="Button" type="Button"]

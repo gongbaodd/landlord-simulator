@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://duy335rd0h8mg" path="res://sprites/ui/Mainmenubackground.png" id="1_f3ppt"]
 [ext_resource type="Texture2D" uid="uid://b8yy34kkohqtg" path="res://sprites/ui/Main menu stuff.png" id="2_6ji68"]
 [ext_resource type="FontFile" uid="uid://unq55it0ojkd" path="res://fonts/ZCOOLKuaiLe-Regular.ttf" id="2_aq3n0"]
-[ext_resource type="PackedScene" uid="uid://svki2kvps1ls" path="res://scenes/game_scenes/dev_button.tscn" id="5_f3arh"]
+[ext_resource type="PackedScene" uid="uid://svki2kvps1ls" path="res://scenes/game_scenes/dev/dev_button.tscn" id="5_f3arh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vbicr"]
 texture = ExtResource("1_f3ppt")
