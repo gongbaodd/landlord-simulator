@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw7kgwy6750bx"
-path="res://.godot/imported/Main menu stuff.png-955e78bea3ede67facdfc7fae5d5988c.ctex"
+uid="uid://dr0i7ng6lymhm"
+path="res://.godot/imported/DialogueParser.svg-d0149a02a1ec195e3bd77e339994df1d.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/Main menu stuff.png"
-dest_files=["res://.godot/imported/Main menu stuff.png-955e78bea3ede67facdfc7fae5d5988c.ctex"]
+source_file="res://addons/dialogue_nodes/icons/DialogueParser.svg"
+dest_files=["res://.godot/imported/DialogueParser.svg-d0149a02a1ec195e3bd77e339994df1d.ctex"]
 
 [params]
 
@@ -32,3 +33,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=true
+editor/convert_colors_with_editor_theme=true

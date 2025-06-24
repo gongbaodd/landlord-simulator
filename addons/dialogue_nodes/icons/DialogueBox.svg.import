@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://plbltpiwcvbv"
-path="res://.godot/imported/Maninmenuboy.png-15b93e03b8059d543910dc5bbebf3348.ctex"
+uid="uid://c6dtwwunb63rm"
+path="res://.godot/imported/DialogueBox.svg-90fca4f90a37756503d256c204e7ef83.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Maninmenuboy.png"
-dest_files=["res://.godot/imported/Maninmenuboy.png-15b93e03b8059d543910dc5bbebf3348.ctex"]
+source_file="res://addons/dialogue_nodes/icons/DialogueBox.svg"
+dest_files=["res://.godot/imported/DialogueBox.svg-90fca4f90a37756503d256c204e7ef83.ctex"]
 
 [params]
 
@@ -32,3 +33,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=true
+editor/convert_colors_with_editor_theme=true
