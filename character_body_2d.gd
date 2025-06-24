@@ -26,4 +26,3 @@ func play_anim(dir):
 			$AnimatedSprite2D.play("move_left")
 		if dir.y == 1:
 			$AnimatedSprite2D.play("move_down")
-	

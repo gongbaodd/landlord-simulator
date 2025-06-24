@@ -49,7 +49,7 @@ grow_horizontal = 2
 scale = Vector2(1.48115, 1.12996)
 
 [node name="Sprite2D" type="Sprite2D" parent="Label2"]
-position = Vector2(241.704, 417.714)
+position = Vector2(248.456, 499.133)
 scale = Vector2(-0.611254, 0.589536)
 texture = ExtResource("2_6ji68")
 

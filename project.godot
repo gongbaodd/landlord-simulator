@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Landlord Simulator"
-run/main_scene="res://scenes/mani_menu_1.tscn"
+run/main_scene="res://scenes/samples/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
@@ -29,7 +29,7 @@ CameraShakeManager="*res://scenes/preloads/camera_shake_manager.tscn"
 
 [display]
 
-window/size/viewport_height=764
+window/size/viewport_height=768
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
@@ -105,3 +105,4 @@ shoot={
 
 environment/volumetric_fog/use_filter=0
 environment/defaults/default_clear_color=Color(0.788235, 0.8, 0.631373, 1)
+textures/main_scene="res://scenes/mani_menu_1.tscn"
