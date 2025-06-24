@@ -159,6 +159,7 @@ initial_velocity_max = 86.54
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(834, 111)
+zoom = Vector2(0.1, 0.1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -195,36 +196,28 @@ tile_set = SubResource("TileSet_mb1ej")
 
 [node name="Door" parent="." instance=ExtResource("20_rp6dp")]
 
-[node name="Control" type="Control" parent="."]
-layout_direction = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 575.0
-offset_top = 408.0
-offset_right = 615.0
-offset_bottom = 448.0
-grow_horizontal = 2
+offset_top = -157.0
+offset_right = 1152.0
 grow_vertical = 0
 size_flags_horizontal = 4
 script = ExtResource("22_5bxej")
 
-[node name="DialogueBox" type="Panel" parent="Control"]
+[node name="DialogueBox" type="Panel" parent="CanvasLayer/Control"]
+layout_direction = 1
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -29.0
-offset_top = -132.0
-offset_right = 503.0
-offset_bottom = 27.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+pivot_offset = Vector2(210, 70)
 script = ExtResource("21_8ocdf")
 data = ExtResource("22_u74er")
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_ty6yx"), SubResource("RichTextEffect_iaq0s"), SubResource("RichTextEffect_vjcor")])

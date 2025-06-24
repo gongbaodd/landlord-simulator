@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 100
+var speed = 500
 var player_state
 
 func _physics_process(delta: float) -> void:
@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 		
 	velocity = direction * speed
 	move_and_slide()
-	play_anim(direction)
+	#play_anim(direction)
 
 func play_anim(dir):
 	if player_state == "idle":
