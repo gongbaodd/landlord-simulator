@@ -1,56 +1,49 @@
-[gd_scene load_steps=28 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=26 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
-[ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://fonts/Peaberry/PeaberryMono.ttf" id="1_i2dk5"]
-[ext_resource type="StyleBox" uid="uid://b6h4sqok6xlxy" path="res://themes/pixelart/button_normal_style.tres" id="2_40phc"]
-[ext_resource type="StyleBox" uid="uid://dj0ib6qvmygdj" path="res://themes/pixelart/button_pressed_style.tres" id="3_u8ajb"]
-[ext_resource type="Texture2D" uid="uid://c8yfrjpm5qqjt" path="res://sprites/ui/ui-tileset.png" id="4_05n6c"]
+[ext_resource type="Texture2D" uid="uid://b8yy34kkohqtg" path="res://sprites/ui/Main menu stuff.png" id="1_rpc4y"]
 [ext_resource type="Script" path="res://scripts/ui/audio_menu.gd" id="4_mjs4o"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="6_8dq4u"]
+[ext_resource type="FontFile" uid="uid://unq55it0ojkd" path="res://fonts/ZCOOLKuaiLe-Regular.ttf" id="6_ylr4l"]
 [ext_resource type="PackedScene" uid="uid://mjro4wolswe5" path="res://scenes/game_scenes/game_scene_dev.tscn" id="8_g7og8"]
-[ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
+[ext_resource type="PackedScene" uid="uid://bk6hl2gng5ply" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="PackedScene" path="res://scenes/scene_transitions/fade_transition.tscn" id="9_ylyfp"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwj1a"]
+bg_color = Color(0.929412, 0.901961, 0.784314, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3wa8"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbmb2"]
-texture = ExtResource("4_05n6c")
-texture_margin_left = 7.0
-texture_margin_top = 7.0
-texture_margin_right = 7.0
-texture_margin_bottom = 7.16192
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 0, 48, 48)
-
-[sub_resource type="Theme" id="Theme_un6xn"]
-default_font = ExtResource("1_i2dk5")
-Button/constants/h_separation = 0
-Button/constants/icon_max_width = 0
-Button/constants/outline_size = 0
-Button/font_sizes/font_size = 30
-Button/fonts/font = ExtResource("1_i2dk5")
-Button/styles/disabled = null
-Button/styles/focus = SubResource("StyleBoxEmpty_ve7hb")
-Button/styles/hover = ExtResource("2_40phc")
-Button/styles/normal = ExtResource("2_40phc")
-Button/styles/pressed = ExtResource("3_u8ajb")
-Label/colors/font_color = Color(0.317647, 0.321569, 0.384314, 1)
-Label/constants/line_spacing = 3
-Label/constants/outline_size = 0
-Label/constants/shadow_offset_x = 1
-Label/constants/shadow_offset_y = 1
-Label/constants/shadow_outline_size = 1
-Label/font_sizes/font_size = 16
-Label/fonts/font = ExtResource("1_i2dk5")
-Label/styles/normal = SubResource("StyleBoxEmpty_n3wa8")
-Panel/styles/panel = SubResource("StyleBoxTexture_rbmb2")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8sia"]
+bg_color = Color(0.337255, 0.423529, 0.52549, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_utnyj"]
 font_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6r8p"]
+bg_color = Color(0.337255, 0.423529, 0.52549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7214"]
+bg_color = Color(0.337255, 0.423529, 0.52549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_0qyyl"]
 font_size = 100
@@ -181,7 +174,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource("Theme_un6xn")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -190,7 +182,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_0bcbq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_nwj1a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(562.5, 419.5)
+scale = Vector2(1.42969, 1.18197)
+texture = ExtResource("1_rpc4y")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 2
+offset_left = 347.0
+offset_top = 193.0
+offset_right = 792.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("6_ylr4l")
+theme_override_font_sizes/font_size = 116
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8sia")
+text = "房屋出租"
+label_settings = SubResource("LabelSettings_utnyj")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Main Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -204,42 +219,55 @@ script = ExtResource("6_8dq4u")
 [node name="Menu Control" type="Control" parent="Main Menu" node_paths=PackedStringArray("start_button", "settings_button", "exit_button")]
 layout_mode = 2
 script = ExtResource("1_7gw0o")
-start_button = NodePath("../MarginContainer/VBoxContainer/start_button")
-settings_button = NodePath("../MarginContainer/VBoxContainer/settings_button")
-exit_button = NodePath("../MarginContainer/VBoxContainer/exit_button")
+start_button = NodePath("../MarginContainer/HBoxContainer/start_button")
+settings_button = NodePath("../MarginContainer/HBoxContainer/settings_button")
+exit_button = NodePath("../MarginContainer/HBoxContainer/exit_button")
 start_scene_path = ExtResource("8_g7og8")
 transition_path = ExtResource("9_ylyfp")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
 layout_mode = 2
+size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Menu/MarginContainer"]
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
 
-[node name="title" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
+[node name="start_button" type="Button" parent="Main Menu/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Title"
-label_settings = SubResource("LabelSettings_utnyj")
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_ylr4l")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_t6r8p")
+text = "开始"
 
-[node name="start_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Start"
-
-[node name="load_button" parent="Main Menu/MarginContainer/VBoxContainer" instance=ExtResource("9_ijoqn")]
+[node name="load_button" parent="Main Menu/MarginContainer/HBoxContainer" instance=ExtResource("9_ijoqn")]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Continue"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_ylr4l")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_g7214")
+text = "继续"
 
-[node name="settings_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+[node name="exit_button" type="Button" parent="Main Menu/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Settings"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_ylr4l")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_g7214")
+text = "退出
+"
 
-[node name="exit_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+[node name="settings_button" type="Button" parent="Main Menu/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Exit"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_ylr4l")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_g7214")
+text = "设置"
 
 [node name="Settings Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -249,12 +277,12 @@ anchor_top = -0.028125
 anchor_right = 0.594
 anchor_bottom = -0.028125
 offset_left = 873.6
-offset_top = 21.4875
+offset_top = 21.6
 offset_right = 1619.71
-offset_bottom = 785.487
+offset_bottom = 789.6
 script = ExtResource("6_8dq4u")
 
-[node name="Audio Control" type="Control" parent="Settings Menu" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
+[node name="Control" type="Control" parent="Settings Menu" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
 layout_mode = 2
 script = ExtResource("4_mjs4o")
 master_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
