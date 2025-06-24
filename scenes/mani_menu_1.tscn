@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=3 uid="uid://f0vhgb7r5yg0"]
+
+[ext_resource type="Script" path="res://scenes/mani_menu_1.gd" id="1_7qa03"]
+[ext_resource type="Texture2D" uid="uid://duy335rd0h8mg" path="res://sprites/ui/Mainmenubackground.png" id="1_f3ppt"]
+[ext_resource type="Texture2D" uid="uid://b8yy34kkohqtg" path="res://sprites/ui/Main menu stuff.png" id="2_6ji68"]
+[ext_resource type="FontFile" uid="uid://unq55it0ojkd" path="res://fonts/ZCOOLKuaiLe-Regular.ttf" id="2_aq3n0"]
+[ext_resource type="PackedScene" uid="uid://svki2kvps1ls" path="res://scenes/game_scenes/dev_button.tscn" id="5_f3arh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vbicr"]
+texture = ExtResource("1_f3ppt")
+
+[node name="mani_menu_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 73.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-2, -82)
+script = ExtResource("1_7qa03")
+metadata/_edit_horizontal_guides_ = [-110.0]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.99997
+offset_top = -77.0
+offset_right = 3.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0027, 1.03214)
+theme_override_styles/panel = SubResource("StyleBoxTexture_vbicr")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -359.0
+offset_top = -175.0
+offset_right = -319.0
+offset_bottom = -152.0
+grow_horizontal = 2
+scale = Vector2(1.48115, 1.12996)
+
+[node name="Sprite2D" type="Sprite2D" parent="Label2"]
+position = Vector2(241.704, 417.714)
+scale = Vector2(-0.611254, 0.589536)
+texture = ExtResource("2_6ji68")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -414.0
+offset_right = 414.0
+offset_bottom = -218.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.803922, 0.576471, 0.45098, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_aq3n0")
+theme_override_font_sizes/font_size = 192
+text = "房屋出租"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_top = 135.0
+offset_right = 56.0
+offset_bottom = 416.0
+grow_horizontal = 2
+theme_override_constants/separation = 7
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_aq3n0")
+theme_override_font_sizes/font_size = 56
+text = "开始"
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_aq3n0")
+theme_override_font_sizes/font_size = 56
+text = "继续"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_aq3n0")
+theme_override_font_sizes/font_size = 56
+text = "退出"
+
+[node name="Setting" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_aq3n0")
+theme_override_font_sizes/font_size = 56
+text = "设置
+"
+
+[node name="Button" parent="." instance=ExtResource("5_f3arh")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 92.0
+offset_bottom = 31.0
