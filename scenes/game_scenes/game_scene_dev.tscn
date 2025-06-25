@@ -151,7 +151,7 @@ initial_velocity_max = 86.54
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(841.25, 9.5)
-zoom = Vector2(0.714122, 0.714122)
+zoom = Vector2(0.1, 0.1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
