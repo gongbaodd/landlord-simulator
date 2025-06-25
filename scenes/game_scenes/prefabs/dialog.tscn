@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://1ovtd7dawkr6"]
+
+[ext_resource type="Script" path="res://scenes/game_scenes/dialog_control.gd" id="1_k5im4"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="2_yscwg"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="3_48j5h"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="4_0q5eg"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="5_cirjf"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_uqfsv"]
+script = ExtResource("3_48j5h")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_e5bty"]
+script = ExtResource("4_0q5eg")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_x4x2f"]
+script = ExtResource("5_cirjf")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -157.0
+offset_right = 1152.0
+grow_vertical = 0
+size_flags_horizontal = 4
+script = ExtResource("1_k5im4")
+
+[node name="DialogueBox" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_yscwg")
+start_id = "START"
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_uqfsv"), SubResource("RichTextEffect_e5bty"), SubResource("RichTextEffect_x4x2f")])
