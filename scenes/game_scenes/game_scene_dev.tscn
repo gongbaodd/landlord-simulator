@@ -111,6 +111,7 @@ material = SubResource("ShaderMaterial_garof")
 texture = ExtResource("4_rxfhd")
 
 [node name="HitBox" type="Area2D" parent="Player/Node2D"]
+visible = false
 collision_mask = 2
 script = ExtResource("5_l1rh8")
 hp = 50.0
@@ -120,6 +121,7 @@ damage_effects = Array[ExtResource("6_t38u7")]([SubResource("Resource_ej8lc"), S
 shape = SubResource("CircleShape2D_o6q7h")
 
 [node name="Gun" type="Node2D" parent="Player/Node2D"]
+visible = false
 script = ExtResource("10_ynff2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Node2D/Gun"]
