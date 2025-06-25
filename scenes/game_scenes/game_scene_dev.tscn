@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=41 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_jfvbw"]
@@ -21,12 +21,11 @@
 [ext_resource type="Script" path="res://scripts/interaction/hit/hurtbox.gd" id="17_qh4jg"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="19_ax58t"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="21_8ocdf"]
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_control.gd" id="22_5bxej"]
-[ext_resource type="Resource" uid="uid://dva5o48sv6fkd" path="res://dialogues/door.tres" id="22_u74er"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="23_0bism"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="24_8we0n"]
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="25_73pq6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="23_gkpsm"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="24_aeqo1"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="25_at1yj"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="26_i8t8r"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_p3djs"]
 vertices = PackedVector2Array(-109, -1423, 1027, -1404, 1910, -629, 2329, 558, 907, 1529, -1430, 1047, -1195, -972)
@@ -90,14 +89,14 @@ tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ysn8p")
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_ty6yx"]
-script = ExtResource("23_0bism")
+[sub_resource type="RichTextEffect" id="RichTextEffect_uqfsv"]
+script = ExtResource("24_aeqo1")
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_iaq0s"]
-script = ExtResource("24_8we0n")
+[sub_resource type="RichTextEffect" id="RichTextEffect_e5bty"]
+script = ExtResource("25_at1yj")
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_vjcor"]
-script = ExtResource("25_73pq6")
+[sub_resource type="RichTextEffect" id="RichTextEffect_x4x2f"]
+script = ExtResource("26_i8t8r")
 
 [node name="game_scene_dev" type="Node2D"]
 script = ExtResource("1_aodx8")
@@ -160,7 +159,7 @@ initial_velocity_max = 86.54
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(834, 111)
-zoom = Vector2(1, 1)
+zoom = Vector2(0.1, 0.1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -213,14 +212,12 @@ size_flags_horizontal = 4
 script = ExtResource("22_5bxej")
 
 [node name="DialogueBox" type="Panel" parent="CanvasLayer/Control"]
-layout_direction = 1
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(210, 70)
-script = ExtResource("21_8ocdf")
-data = ExtResource("22_u74er")
-custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_ty6yx"), SubResource("RichTextEffect_iaq0s"), SubResource("RichTextEffect_vjcor")])
+script = ExtResource("23_gkpsm")
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_uqfsv"), SubResource("RichTextEffect_e5bty"), SubResource("RichTextEffect_x4x2f")])
