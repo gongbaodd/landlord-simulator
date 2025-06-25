@@ -33,7 +33,7 @@ nodes = {
 "text": "I will pass"
 }
 },
-"size": Vector2(300, 289),
+"size": Vector2(300, 322),
 "speaker": "Speaker"
 },
 "1_2": {
@@ -61,20 +61,20 @@ nodes = {
 "text": "-20 points answer"
 }
 },
-"size": Vector2(300, 289),
+"size": Vector2(300, 322),
 "speaker": "Speaker"
 },
 "1_3": {
 "dialogue": "I will rent your room.",
-"offset": Vector2(140, 540),
+"offset": Vector2(160, 560),
 "options": {
 0: {
 "condition": {},
-"link": "END",
+"link": &"4_13",
 "text": "Here is your room"
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300, 256),
 "speaker": "Speaker"
 },
 "1_4": {
@@ -102,7 +102,7 @@ nodes = {
 "text": "-30 points answer"
 }
 },
-"size": Vector2(300, 289),
+"size": Vector2(300, 322),
 "speaker": "Speaker"
 },
 "1_5": {
@@ -130,20 +130,20 @@ nodes = {
 "text": "-20 points answer"
 }
 },
-"size": Vector2(300, 289),
+"size": Vector2(300, 322),
 "speaker": "Speaker"
 },
 "1_6": {
 "dialogue": "I think I will look for others",
-"offset": Vector2(540, 540),
+"offset": Vector2(580, 540),
 "options": {
 0: {
 "condition": {},
-"link": "END",
+"link": &"4_13",
 "text": "fine"
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300, 256),
 "speaker": "Speaker"
 },
 "4_1": {
@@ -172,6 +172,13 @@ nodes = {
 "offset": Vector2(540, 180),
 "type": 2,
 "value": "20",
+"variable": "points"
+},
+"4_13": {
+"link": "END",
+"offset": Vector2(160, 880),
+"type": 0,
+"value": "0",
 "variable": "points"
 },
 "4_2": {
@@ -235,22 +242,22 @@ nodes = {
 "offset": Vector2(140, 300),
 "operator": 4,
 "true": &"1_3",
-"value1": "points",
+"value1": "{{points}}",
 "value2": "60"
 },
 "5_2": {
 "false": &"1_6",
-"offset": Vector2(540, 300),
+"offset": Vector2(540, 280),
 "operator": 4,
 "true": &"1_3",
-"value1": "points",
+"value1": "{{points}}",
 "value2": "60"
 }
 }
 variables = {
 "points": {
 "type": 2,
-"value": 60
+"value": 0
 }
 }
 strays = Array[String]([])
