@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=42 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_jfvbw"]
@@ -21,7 +21,8 @@
 [ext_resource type="Script" path="res://scripts/interaction/hit/hurtbox.gd" id="17_qh4jg"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="19_ax58t"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
-[ext_resource type="Script" path="res://scenes/game_scenes/game_scene_control.gd" id="22_5bxej"]
+[ext_resource type="Resource" uid="uid://dva5o48sv6fkd" path="res://dialogues/door.tres" id="22_u74er"]
+[ext_resource type="Script" path="res://scenes/game_scenes/dialog_control.gd" id="23_bfmxd"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="23_gkpsm"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="24_aeqo1"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="25_at1yj"]
@@ -159,7 +160,7 @@ initial_velocity_max = 86.54
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(834, 111)
-zoom = Vector2(0.1, 0.1)
+zoom = Vector2(1, 1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -194,9 +195,11 @@ scale = Vector2(20, 20)
 tile_map_data = PackedByteArray("AAAAAPv/AAACAAAAAAAAAPr/AAACAAAAAAAAAPn/AAACAAAAAAAAAPj/AAACAAAAAAAAAPf/AAACAAAAAAAAAPb/AAACAAAAAAAAAPX/AAACAAAAAAAAAPT/AAACAAAAAAAAAP7/AAACAAAAAAAAAP//AAACAAAAAAAAAAAAAAACAAAAAAAAAAEAAAACAAAAAAAAAAIAAAACAAAAAAAAAAMAAAACAAAAAAAAAAQAAAACAAAAAAAAAAUAAAACAAAAAAAAAAYAAAACAAAAAAAAAAcAAAACAAAAAAAAAAgAAAACAAAAAAAAAAkAAAACAAAAAAD///T/AAACAAAAAAD+//T/AAACAAAAAAD9//T/AAACAAAAAAD8//T/AAACAAAAAAD7//T/AAACAAAAAAD6//T/AAACAAAAAAD5//T/AAACAAAAAAD4//T/AAACAAAAAAD3//T/AAACAAAAAAD2//T/AAACAAAAAAD1//T/AAACAAAAAAD0//T/AAACAAAAAADz//T/AAACAAAAAADy//T/AAACAAAAAADx//T/AAACAAAAAADw//T/AAACAAAAAADv//T/AAACAAAAAADv//X/AAACAAAAAADv//b/AAACAAAAAADv//f/AAACAAAAAADv//j/AAACAAAAAADv//n/AAACAAAAAADv//r/AAACAAAAAADv//v/AAACAAAAAADv//z/AAACAAAAAADv//3/AAACAAAAAADv//7/AAACAAAAAADv////AAACAAAAAADv/wAAAAACAAAAAADv/wEAAAACAAAAAADv/wIAAAACAAAAAADv/wMAAAACAAAAAADv/wQAAAACAAAAAADv/wUAAAACAAAAAADv/wYAAAACAAAAAADv/wcAAAACAAAAAADv/wgAAAACAAAAAADv/wkAAAACAAAAAADw/wkAAAACAAAAAADx/wkAAAACAAAAAADy/wkAAAACAAAAAADz/wkAAAACAAAAAAD0/wkAAAACAAAAAAD1/wkAAAACAAAAAAD2/wkAAAACAAAAAAD3/wkAAAACAAAAAAD4/wkAAAACAAAAAAD5/wkAAAACAAAAAAD6/wkAAAACAAAAAAD7/wkAAAACAAAAAAD8/wkAAAACAAAAAAD9/wkAAAACAAAAAAD+/wkAAAACAAAAAAD//wkAAAACAAAAAAAAAPP/AAACAAAAAAAAAPL/AAACAAAAAAAAAPH/AAACAAAAAAAAAPD/AAACAAAAAAAAAO//AAACAAAAAAAAAO7/AAACAAAAAAAAAO3/AAACAAAAAAAAAOz/AAACAAAAAAAAAOv/AAACAAAAAAAAAOr/AAACAAAAAAAAAOn/AAACAAAAAAAAAOj/AAACAAAAAAABAOj/AAACAAAAAAACAOj/AAACAAAAAAADAOj/AAACAAAAAAAEAOj/AAACAAAAAAAFAOj/AAACAAAAAAAGAOj/AAACAAAAAAAHAOj/AAACAAAAAAAIAOj/AAACAAAAAAAJAOj/AAACAAAAAAAKAOj/AAACAAAAAAALAOj/AAACAAAAAAAMAOj/AAACAAAAAAANAOj/AAACAAAAAAAOAOj/AAACAAAAAAAPAOj/AAACAAAAAAAQAOj/AAACAAAAAAARAOj/AAACAAAAAAASAOj/AAACAAAAAAASAOn/AAACAAAAAAASAOr/AAACAAAAAAASAOv/AAACAAAAAAASAOz/AAACAAAAAAASAO3/AAACAAAAAAASAO7/AAACAAAAAAASAO//AAACAAAAAAASAPD/AAACAAAAAAASAPH/AAACAAAAAAASAPL/AAACAAAAAAASAPP/AAACAAAAAAASAPT/AAACAAAAAAASAPX/AAACAAAAAAASAPb/AAACAAAAAAASAPf/AAACAAAAAAASAPj/AAACAAAAAAASAPn/AAACAAAAAAASAPr/AAACAAAAAAASAPv/AAACAAAAAAASAPz/AAACAAAAAAASAP3/AAACAAAAAAASAP7/AAACAAAAAAASAP//AAACAAAAAAASAAAAAAACAAAAAAASAAEAAAACAAAAAAASAAIAAAACAAAAAAASAAMAAAACAAAAAAASAAQAAAACAAAAAAASAAUAAAACAAAAAAASAAYAAAACAAAAAAASAAcAAAACAAAAAAASAAgAAAACAAAAAAASAAkAAAACAAAAAAASAAoAAAACAAAAAAASAAsAAAACAAAAAAARAAsAAAACAAAAAAAQAAsAAAACAAAAAAAPAAsAAAACAAAAAAAOAAsAAAACAAAAAAANAAsAAAACAAAAAAAMAAsAAAACAAAAAAALAAsAAAACAAAAAAAKAAsAAAACAAAAAAAJAAsAAAACAAAAAAAIAAsAAAACAAAAAAAHAAsAAAACAAAAAAAGAAsAAAACAAAAAAAFAAsAAAACAAAAAAAEAAsAAAACAAAAAAADAAsAAAACAAAAAAACAAsAAAACAAAAAAABAAsAAAACAAAAAAAAAAsAAAACAAAAAAAAAAoAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_mb1ej")
 
-[node name="Door" parent="." instance=ExtResource("20_rp6dp")]
+[node name="Door" parent="." node_paths=PackedStringArray("dialog_control") instance=ExtResource("20_rp6dp")]
 position = Vector2(74, -478)
 scale = Vector2(1.68, 1.68)
+dialog_control = NodePath("../CanvasLayer/Control")
+dialog_data = ExtResource("22_u74er")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -209,7 +212,7 @@ offset_top = -157.0
 offset_right = 1152.0
 grow_vertical = 0
 size_flags_horizontal = 4
-script = ExtResource("22_5bxej")
+script = ExtResource("23_bfmxd")
 
 [node name="DialogueBox" type="Panel" parent="CanvasLayer/Control"]
 visible = false
@@ -220,4 +223,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("23_gkpsm")
+start_id = "START"
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_uqfsv"), SubResource("RichTextEffect_e5bty"), SubResource("RichTextEffect_x4x2f")])
