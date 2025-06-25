@@ -23,7 +23,7 @@ nodes = {
 "text": "Okay"
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300, 256),
 "speaker": "Door"
 }
 }
