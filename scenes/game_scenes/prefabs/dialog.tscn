@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://1ovtd7dawkr6"]
 
-[ext_resource type="Script" path="res://scenes/game_scenes/dialog_control.gd" id="1_k5im4"]
+[ext_resource type="Script" path="res://scenes/game_scenes/prefabs/dialog_control.gd" id="1_k5im4"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="2_yscwg"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="3_48j5h"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="4_0q5eg"]

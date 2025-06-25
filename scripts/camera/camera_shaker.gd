@@ -25,9 +25,10 @@ func _ready():
 	noise.domain_warp_fractal_octaves = 2
 	
 func _process(delta):
-	if trauma:
-		trauma = max(trauma - decay_rate * delta, 0)
-		_shake()
+	pass
+	# if trauma:
+		# trauma = max(trauma - decay_rate * delta, 0)
+		# _shake()
 
 
 func add_trauma(amount):
