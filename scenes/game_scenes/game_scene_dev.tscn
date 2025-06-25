@@ -90,7 +90,7 @@ sources/0 = SubResource("TileSetAtlasSource_ysn8p")
 script = ExtResource("1_aodx8")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(-192, -20)
+position = Vector2(-203, -124)
 navigation_polygon = SubResource("NavigationPolygon_p3djs")
 
 [node name="Player" type="CharacterBody2D" parent="."]
@@ -190,3 +190,5 @@ dialog_data = ExtResource("22_u74er")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Dialog" parent="CanvasLayer" instance=ExtResource("23_11ufv")]
+offset_top = -368.0
+offset_bottom = -218.0
