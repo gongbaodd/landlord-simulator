@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ghuvjtihmhxv"]
+[gd_scene load_steps=6 format=3 uid="uid://ghuvjtihmhxv"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/prefabs/character.gd" id="1_wus63"]
 [ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="2_mdu1x"]
+[ext_resource type="Resource" uid="uid://cgxs1lifubif6" path="res://dialogues/character.tres" id="2_yp0r6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fji7f"]
 size = Vector2(155, 147)
@@ -11,6 +12,7 @@ size = Vector2(129, 127)
 
 [node name="Character" type="Area2D"]
 script = ExtResource("1_wus63")
+dialog_data = ExtResource("2_yp0r6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
@@ -24,3 +26,5 @@ texture = ExtResource("2_mdu1x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_ls0js")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://dva5o48sv6fkd" path="res://dialogues/interact.tres" id="10_66qf4"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="10_wwm1y"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="11_iuh66"]
-[ext_resource type="Resource" uid="uid://cgxs1lifubif6" path="res://dialogues/introvert_character.tres" id="11_oe2fx"]
+[ext_resource type="Resource" uid="uid://cgxs1lifubif6" path="res://dialogues/character.tres" id="11_oe2fx"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="12_cnev0"]
 
 [sub_resource type="Curve" id="1"]

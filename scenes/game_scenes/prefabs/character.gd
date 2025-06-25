@@ -3,11 +3,18 @@ extends Area2D
 @export var dialog_control: DialogControl
 @export var dialog_data: DialogueData
 
-# Called when the node enters the scene tree for the first time.
+var player_inside := false
+
 func _ready() -> void:
-	pass # Replace with function body.
+	if !dialog_control:
+		push_error("Dialog control not set. Please assign a Control node to dialog_control.")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(_delta: float) -> void:
+	if player_inside and Input.is_action_just_pressed("use"):
+		dialog_control.show_dialogue(dialog_data)
+
+
+func _on_body_entered(body:Node2D) -> void:
+	if body.name == "Player":
+		player_inside = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=37 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_jfvbw"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
 [ext_resource type="Resource" uid="uid://dva5o48sv6fkd" path="res://dialogues/interact.tres" id="22_u74er"]
 [ext_resource type="PackedScene" uid="uid://1ovtd7dawkr6" path="res://scenes/game_scenes/prefabs/dialog.tscn" id="23_11ufv"]
-[ext_resource type="Resource" uid="uid://cgxs1lifubif6" path="res://dialogues/character.tres" id="24_2ny5h"]
 [ext_resource type="PackedScene" uid="uid://ghuvjtihmhxv" path="res://scenes/game_scenes/prefabs/character.tscn" id="24_34hmd"]
 [ext_resource type="Theme" uid="uid://dc6c1peo4pfyr" path="res://addons/dialogue_nodes/themes/bubbly.theme" id="26_7egdx"]
 
@@ -150,7 +149,7 @@ initial_velocity_max = 86.54
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(841.25, 9.5)
-zoom = Vector2(0.1, 0.1)
+zoom = Vector2(0.714122, 0.714122)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -194,7 +193,6 @@ dialog_data = ExtResource("22_u74er")
 [node name="Character" parent="." node_paths=PackedStringArray("dialog_control") instance=ExtResource("24_34hmd")]
 position = Vector2(1623, 294)
 dialog_control = NodePath("../CanvasLayer/Dialog")
-dialog_data = ExtResource("24_2ny5h")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
