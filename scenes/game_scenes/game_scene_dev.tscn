@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=21 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_jfvbw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://shaders/sprite.gdshader" id="3_1jd5w"]
 [ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="4_rxfhd"]
 [ext_resource type="Script" path="res://scenes/game_scenes/exp_count.gd" id="13_glcna"]
+[ext_resource type="Script" path="res://scenes/game_scenes/time.gd" id="14_yfr4n"]
 [ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="15_lp3aw"]
 [ext_resource type="Script" path="res://scripts/interaction/hit/hurtbox.gd" id="17_qh4jg"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="19_ax58t"]
@@ -140,5 +141,25 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "EXP: 0"
 script = ExtResource("13_glcna")
+
+[node name="Money" type="Label" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 28.0
+offset_right = 56.0
+offset_bottom = 51.0
+text = "Money: 0"
+
+[node name="Tenant" type="Label" parent="CanvasLayer"]
+offset_top = 55.0
+offset_right = 72.0
+offset_bottom = 78.0
+text = "Tenant: 0"
+
+[node name="Time" type="Label" parent="CanvasLayer"]
+offset_top = 83.0
+offset_right = 40.0
+offset_bottom = 106.0
+text = "Time: "
+script = ExtResource("14_yfr4n")
 
 [connection signal="experience_cut" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_experience_cut"]
