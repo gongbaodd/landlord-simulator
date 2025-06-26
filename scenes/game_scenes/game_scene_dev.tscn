@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=23 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_jfvbw"]
@@ -6,6 +6,8 @@
 [ext_resource type="Shader" path="res://shaders/sprite.gdshader" id="3_1jd5w"]
 [ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="4_rxfhd"]
 [ext_resource type="Script" path="res://scenes/game_scenes/exp_count.gd" id="13_glcna"]
+[ext_resource type="Script" path="res://scenes/game_scenes/money.gd" id="14_hjmdp"]
+[ext_resource type="Script" path="res://scenes/game_scenes/tenant.gd" id="14_nf0ku"]
 [ext_resource type="Script" path="res://scenes/game_scenes/time.gd" id="14_yfr4n"]
 [ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="15_lp3aw"]
 [ext_resource type="Script" path="res://scripts/interaction/hit/hurtbox.gd" id="17_qh4jg"]
@@ -142,18 +144,21 @@ offset_bottom = 23.0
 text = "EXP: 0"
 script = ExtResource("13_glcna")
 
-[node name="Money" type="Label" parent="CanvasLayer"]
+[node name="Money" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("tenant_label")]
 offset_left = -1.0
 offset_top = 28.0
 offset_right = 56.0
 offset_bottom = 51.0
 text = "Money: 0"
+script = ExtResource("14_hjmdp")
+tenant_label = NodePath("../Tenant")
 
 [node name="Tenant" type="Label" parent="CanvasLayer"]
 offset_top = 55.0
 offset_right = 72.0
 offset_bottom = 78.0
 text = "Tenant: 0"
+script = ExtResource("14_nf0ku")
 
 [node name="Time" type="Label" parent="CanvasLayer"]
 offset_top = 83.0
@@ -163,3 +168,6 @@ text = "Time: "
 script = ExtResource("14_yfr4n")
 
 [connection signal="experience_cut" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_experience_cut"]
+[connection signal="on_success" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_on_success"]
+[connection signal="on_success" from="CanvasLayer/Dialog" to="CanvasLayer/Tenant" method="_on_dialog_on_success"]
+[connection signal="on_exp_cut" from="CanvasLayer/ExpCount" to="CanvasLayer/Tenant" method="_on_exp_count_on_exp_cut"]

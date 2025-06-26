@@ -70,7 +70,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"4_13",
+"link": &"3_2",
 "text": "Here is your room"
 }
 },
@@ -151,6 +151,11 @@ nodes = {
 "offset": Vector2(-600, 140),
 "signalValue": "exp_cut"
 },
+"3_2": {
+"link": &"4_13",
+"offset": Vector2(220, 880),
+"signalValue": "SUCCESS"
+},
 "4_1": {
 "link": &"1_4",
 "offset": Vector2(-280, -80),
@@ -181,7 +186,7 @@ nodes = {
 },
 "4_13": {
 "link": "END",
-"offset": Vector2(160, 880),
+"offset": Vector2(540, 880),
 "type": 0,
 "value": "0",
 "variable": "points"
