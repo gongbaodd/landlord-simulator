@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://kjcwkplue3h6"]
+
+[ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_0w1hq"]
+[ext_resource type="Shader" path="res://shaders/sprite.gdshader" id="2_sfnb3"]
+[ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="3_0k3cb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6q7h"]
+radius = 51.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_garof"]
+resource_local_to_scene = true
+shader = ExtResource("2_sfnb3")
+shader_parameter/is_shaking = true
+shader_parameter/amplitude = 0.0
+shader_parameter/is_flickering = false
+shader_parameter/flicker_color = Color(1, 1, 1, 1)
+shader_parameter/flicker_frequency = 10.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(693, -27)
+motion_mode = 1
+script = ExtResource("1_0w1hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o6q7h")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+material = SubResource("ShaderMaterial_garof")
+texture = ExtResource("3_0k3cb")

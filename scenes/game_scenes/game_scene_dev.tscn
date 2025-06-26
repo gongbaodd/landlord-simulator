@@ -1,10 +1,7 @@
-[gd_scene load_steps=23 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=18 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
-[ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_jfvbw"]
-[ext_resource type="Script" path="res://scripts/movement/flip_to_cursor.gd" id="2_hc0u8"]
-[ext_resource type="Shader" path="res://shaders/sprite.gdshader" id="3_1jd5w"]
-[ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="4_rxfhd"]
+[ext_resource type="PackedScene" uid="uid://kjcwkplue3h6" path="res://scenes/game_scenes/prefabs/player.tscn" id="2_di5cs"]
 [ext_resource type="PackedScene" uid="uid://bchg1u2vpawdl" path="res://scenes/game_scenes/prefabs/house.tscn" id="10_s0ksp"]
 [ext_resource type="Resource" uid="uid://b63ccow78dhq2" path="res://scenes/game_scenes/dialogues/house.tres" id="11_58n7l"]
 [ext_resource type="Script" path="res://scenes/game_scenes/exp_count.gd" id="13_glcna"]
@@ -22,18 +19,6 @@
 vertices = PackedVector2Array(-109, -1423, 1027, -1404, 1910, -629, 2329, 558, 907, 1529, -1430, 1047, -1195, -972)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1195, -972, -1430, 1047, 907, 1529, 2329, 558, 1910, -629, 1027, -1404, -109, -1423)])
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_o6q7h"]
-radius = 51.8
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_garof"]
-resource_local_to_scene = true
-shader = ExtResource("3_1jd5w")
-shader_parameter/is_shaking = true
-shader_parameter/amplitude = 0.0
-shader_parameter/is_flickering = false
-shader_parameter/flicker_color = Color(1, 1, 1, 1)
-shader_parameter/flicker_frequency = 10.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysn8p"]
 texture = ExtResource("19_ax58t")
@@ -60,32 +45,8 @@ script = ExtResource("1_aodx8")
 position = Vector2(-203, -124)
 navigation_polygon = SubResource("NavigationPolygon_p3djs")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(693, -27)
-motion_mode = 1
-script = ExtResource("1_jfvbw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_o6q7h")
-
-[node name="Node2D" type="Node2D" parent="Player"]
-script = ExtResource("2_hc0u8")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Node2D"]
-material = SubResource("ShaderMaterial_garof")
-texture = ExtResource("4_rxfhd")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Player"]
-emitting = false
-amount = 1000
-lifetime = 0.5
-one_shot = true
-explosiveness = 0.15
-lifetime_randomness = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 86.54
-initial_velocity_max = 86.54
+[node name="Player" parent="." node_paths=PackedStringArray("dialog_control") instance=ExtResource("2_di5cs")]
+dialog_control = NodePath("../CanvasLayer/Dialog")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1041, -299.75)
@@ -111,10 +72,11 @@ dialog_control = NodePath("../CanvasLayer/Dialog")
 position = Vector2(1623, 294)
 dialog_control = NodePath("../CanvasLayer/Dialog")
 
-[node name="House" parent="." node_paths=PackedStringArray("dialog_control") instance=ExtResource("10_s0ksp")]
+[node name="House" parent="." node_paths=PackedStringArray("dialog_control", "money_label") instance=ExtResource("10_s0ksp")]
 position = Vector2(1774, -988)
 dialog_control = NodePath("../CanvasLayer/Dialog")
 dialog_data = ExtResource("11_58n7l")
+money_label = NodePath("../CanvasLayer/Money")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -125,19 +87,21 @@ offset_right = 1112.0
 offset_bottom = -46.0
 theme = ExtResource("26_7egdx")
 
-[node name="ExpCount" type="Label" parent="CanvasLayer"]
+[node name="ExpCount" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("dialog_control")]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "EXP: 0"
 script = ExtResource("13_glcna")
+dialog_control = NodePath("../Dialog")
 
-[node name="Money" type="Label" parent="CanvasLayer"]
+[node name="Money" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("tenant_label")]
 offset_left = -1.0
 offset_top = 28.0
 offset_right = 56.0
 offset_bottom = 51.0
 text = "Money: 0"
 script = ExtResource("14_hjmdp")
+tenant_label = NodePath("../Tenant")
 
 [node name="Tenant" type="Label" parent="CanvasLayer"]
 offset_top = 55.0
@@ -154,6 +118,7 @@ text = "Time: "
 script = ExtResource("14_yfr4n")
 
 [connection signal="experience_cut" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_experience_cut"]
+[connection signal="on_buy_house" from="CanvasLayer/Dialog" to="House" method="_on_dialog_on_buy_house"]
 [connection signal="on_success_rent" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_on_success"]
 [connection signal="on_success_rent" from="CanvasLayer/Dialog" to="CanvasLayer/Tenant" method="_on_dialog_on_success"]
 [connection signal="on_exp_cut" from="CanvasLayer/ExpCount" to="CanvasLayer/Tenant" method="_on_exp_count_on_exp_cut"]
