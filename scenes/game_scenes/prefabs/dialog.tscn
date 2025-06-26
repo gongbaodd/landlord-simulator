@@ -37,3 +37,5 @@ grow_vertical = 2
 script = ExtResource("2_yscwg")
 start_id = "START"
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_uqfsv"), SubResource("RichTextEffect_e5bty"), SubResource("RichTextEffect_x4x2f")])
+
+[connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]

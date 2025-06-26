@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="1_bn4c2"]
 [ext_resource type="Script" path="res://scenes/game_scenes/prefabs/door.gd" id="1_s861w"]
-[ext_resource type="Resource" uid="uid://dva5o48sv6fkd" path="res://dialogues/interact.tres" id="2_teqr5"]
+[ext_resource type="Resource" uid="uid://dva5o48sv6fkd" path="res://scenes/game_scenes/dialogues/interact.tres" id="2_teqr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdvys"]
 size = Vector2(126, 126)
