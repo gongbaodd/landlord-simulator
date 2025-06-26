@@ -5,12 +5,13 @@
 [ext_resource type="Script" path="res://scripts/movement/flip_to_cursor.gd" id="2_hc0u8"]
 [ext_resource type="Shader" path="res://shaders/sprite.gdshader" id="3_1jd5w"]
 [ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="4_rxfhd"]
+[ext_resource type="PackedScene" uid="uid://bchg1u2vpawdl" path="res://scenes/game_scenes/prefabs/house.tscn" id="10_s0ksp"]
+[ext_resource type="Resource" uid="uid://b63ccow78dhq2" path="res://scenes/game_scenes/dialogues/house.tres" id="11_58n7l"]
 [ext_resource type="Script" path="res://scenes/game_scenes/exp_count.gd" id="13_glcna"]
 [ext_resource type="Script" path="res://scenes/game_scenes/money.gd" id="14_hjmdp"]
 [ext_resource type="Script" path="res://scenes/game_scenes/tenant.gd" id="14_nf0ku"]
 [ext_resource type="Script" path="res://scenes/game_scenes/time.gd" id="14_yfr4n"]
 [ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="15_lp3aw"]
-[ext_resource type="Script" path="res://scripts/interaction/hit/hurtbox.gd" id="17_qh4jg"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="19_ax58t"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
 [ext_resource type="PackedScene" uid="uid://1ovtd7dawkr6" path="res://scenes/game_scenes/prefabs/dialog.tscn" id="23_11ufv"]
@@ -33,9 +34,6 @@ shader_parameter/amplitude = 0.0
 shader_parameter/is_flickering = false
 shader_parameter/flicker_color = Color(1, 1, 1, 1)
 shader_parameter/flicker_frequency = 10.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5ma2"]
-size = Vector2(100, 100)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysn8p"]
 texture = ExtResource("19_ax58t")
@@ -90,30 +88,14 @@ initial_velocity_min = 86.54
 initial_velocity_max = 86.54
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(841.25, 9.5)
-zoom = Vector2(0.714122, 0.714122)
+position = Vector2(1041, -299.75)
+zoom = Vector2(0.477058, 0.477058)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
 camera = NodePath("..")
 min_zoom = 0.1
-targets = Array[NodePath]([NodePath("../../Player"), NodePath("../../Spikes"), NodePath("../../Door"), NodePath("../../Character")])
-
-[node name="Spikes" type="Area2D" parent="."]
-position = Vector2(975, 249)
-collision_layer = 2
-script = ExtResource("17_qh4jg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes"]
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("4_rxfhd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
-modulate = Color(1, 0, 0, 1)
-shape = SubResource("RectangleShape2D_n5ma2")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Spikes"]
-radius = 175.82
+targets = Array[NodePath]([NodePath("../../Player"), NodePath("../../Door"), NodePath("../../Character"), NodePath("../../House")])
 
 [node name="WallTileMap" type="TileMapLayer" parent="."]
 scale = Vector2(20, 20)
@@ -128,6 +110,11 @@ dialog_control = NodePath("../CanvasLayer/Dialog")
 [node name="Character" parent="." node_paths=PackedStringArray("dialog_control") instance=ExtResource("24_34hmd")]
 position = Vector2(1623, 294)
 dialog_control = NodePath("../CanvasLayer/Dialog")
+
+[node name="House" parent="." node_paths=PackedStringArray("dialog_control") instance=ExtResource("10_s0ksp")]
+position = Vector2(1774, -988)
+dialog_control = NodePath("../CanvasLayer/Dialog")
+dialog_data = ExtResource("11_58n7l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -144,14 +131,13 @@ offset_bottom = 23.0
 text = "EXP: 0"
 script = ExtResource("13_glcna")
 
-[node name="Money" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("tenant_label")]
+[node name="Money" type="Label" parent="CanvasLayer"]
 offset_left = -1.0
 offset_top = 28.0
 offset_right = 56.0
 offset_bottom = 51.0
 text = "Money: 0"
 script = ExtResource("14_hjmdp")
-tenant_label = NodePath("../Tenant")
 
 [node name="Tenant" type="Label" parent="CanvasLayer"]
 offset_top = 55.0
@@ -168,6 +154,7 @@ text = "Time: "
 script = ExtResource("14_yfr4n")
 
 [connection signal="experience_cut" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_experience_cut"]
-[connection signal="on_success" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_on_success"]
-[connection signal="on_success" from="CanvasLayer/Dialog" to="CanvasLayer/Tenant" method="_on_dialog_on_success"]
+[connection signal="on_success_rent" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_on_success"]
+[connection signal="on_success_rent" from="CanvasLayer/Dialog" to="CanvasLayer/Tenant" method="_on_dialog_on_success"]
 [connection signal="on_exp_cut" from="CanvasLayer/ExpCount" to="CanvasLayer/Tenant" method="_on_exp_count_on_exp_cut"]
+[connection signal="on_new_month" from="CanvasLayer/Time" to="CanvasLayer/Money" method="_on_time_on_new_month"]

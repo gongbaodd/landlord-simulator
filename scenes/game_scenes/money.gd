@@ -12,6 +12,6 @@ func _update_display() -> void:
 	text = "Money: " + str(money_count)
 
 func _on_time_on_new_month() -> void:
-	var tenant_count = tenant_label.get_script().tenant_count
+	var tenant_count = tenant_label.tenant_count
 	money_count += tenant_count * tenant_money_count
 	_update_display()

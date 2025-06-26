@@ -20,11 +20,14 @@ func hide_dialogue() -> void:
 	cut_experience_amount = 0
 
 signal experience_cut(amount: int)
-signal on_success
+signal on_success_rent
+signal on_buy_house
 
 func _on_dialogue_box_dialogue_signal(value:String) -> void:
 	match value:
 		"exp_cut":
 			experience_cut.emit(cut_experience_amount)
 		"SUCCESS":
-			on_success.emit()
+			on_success_rent.emit()
+		"BUY":
+			on_buy_house.emit()

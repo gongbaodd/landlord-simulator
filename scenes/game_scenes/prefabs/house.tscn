@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bchg1u2vpawdl"]
+
+[ext_resource type="Script" path="res://scenes/game_scenes/prefabs/house.gd" id="1_4a0f1"]
+[ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="1_f2fdt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8j3n"]
+size = Vector2(155, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo6cw"]
+size = Vector2(118, 120)
+
+[node name="House" type="Area2D"]
+script = ExtResource("1_4a0f1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_v8j3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f2fdt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_fo6cw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
