@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=20 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_jfvbw"]
 [ext_resource type="Script" path="res://scripts/movement/flip_to_cursor.gd" id="2_hc0u8"]
 [ext_resource type="Shader" path="res://shaders/sprite.gdshader" id="3_1jd5w"]
 [ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="4_rxfhd"]
+[ext_resource type="Script" path="res://scenes/game_scenes/exp_count.gd" id="13_glcna"]
 [ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="15_lp3aw"]
 [ext_resource type="Script" path="res://scripts/interaction/hit/hurtbox.gd" id="17_qh4jg"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="19_ax58t"]
@@ -51,10 +52,8 @@ tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ysn8p")
 
-[node name="game_scene_dev" type="Node2D" node_paths=PackedStringArray("dialog_control", "exp_label")]
+[node name="game_scene_dev" type="Node2D"]
 script = ExtResource("1_aodx8")
-dialog_control = NodePath("CanvasLayer/Dialog")
-exp_label = NodePath("CanvasLayer/ExpCount")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-203, -124)
@@ -140,3 +139,6 @@ theme = ExtResource("26_7egdx")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "EXP: 0"
+script = ExtResource("13_glcna")
+
+[connection signal="experience_cut" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_experience_cut"]

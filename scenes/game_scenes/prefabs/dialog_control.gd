@@ -24,4 +24,4 @@ signal experience_cut(amount: int)
 func _on_dialogue_box_dialogue_signal(value:String) -> void:
 	match value:
 		"exp_cut":
-			emit_signal("experience_cut", cut_experience_amount)
+			experience_cut.emit(cut_experience_amount)
