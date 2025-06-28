@@ -1,27 +1,16 @@
-[gd_scene load_steps=37 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=18 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
-[ext_resource type="Script" path="res://scripts/movement/top_down_controller.gd" id="1_jfvbw"]
-[ext_resource type="Script" path="res://scripts/movement/flip_to_cursor.gd" id="2_hc0u8"]
-[ext_resource type="Shader" path="res://shaders/sprite.gdshader" id="3_1jd5w"]
-[ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="4_rxfhd"]
-[ext_resource type="Script" path="res://scripts/interaction/hit/hitbox.gd" id="5_l1rh8"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/sprite_shake_effect.gd" id="6_74d53"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/empty_effect.gd" id="6_t38u7"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/slow_mo_effect.gd" id="7_dkkl8"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/color_flicker_effect.gd" id="8_31s2l"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/particle_effect.gd" id="9_f17s0"]
-[ext_resource type="Script" path="res://scripts/movement/pointer_rotator.gd" id="10_ynff2"]
-[ext_resource type="Texture2D" uid="uid://dqnvyneq7rl8f" path="res://sprites/common/gun.png" id="11_c15hv"]
-[ext_resource type="Script" path="res://scripts/gameplay/gun.gd" id="12_eilnm"]
-[ext_resource type="PackedScene" uid="uid://bkywrvgqsvvmu" path="res://scenes/common/bullet.tscn" id="13_eyne8"]
-[ext_resource type="Script" path="res://scripts/interaction/effects/camera_shake_effect.gd" id="14_imj4u"]
+[ext_resource type="PackedScene" uid="uid://kjcwkplue3h6" path="res://scenes/game_scenes/prefabs/player.tscn" id="2_di5cs"]
+[ext_resource type="PackedScene" uid="uid://bchg1u2vpawdl" path="res://scenes/game_scenes/prefabs/house.tscn" id="10_s0ksp"]
+[ext_resource type="Resource" uid="uid://b63ccow78dhq2" path="res://scenes/game_scenes/dialogues/house.tres" id="11_58n7l"]
+[ext_resource type="Script" path="res://scenes/game_scenes/exp_count.gd" id="13_glcna"]
+[ext_resource type="Script" path="res://scenes/game_scenes/money.gd" id="14_hjmdp"]
+[ext_resource type="Script" path="res://scenes/game_scenes/tenant.gd" id="14_nf0ku"]
+[ext_resource type="Script" path="res://scenes/game_scenes/time.gd" id="14_yfr4n"]
 [ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="15_lp3aw"]
-[ext_resource type="Script" path="res://scripts/camera/camera_shaker.gd" id="16_hgb43"]
-[ext_resource type="Script" path="res://scripts/interaction/hit/hurtbox.gd" id="17_qh4jg"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="19_ax58t"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
-[ext_resource type="Resource" uid="uid://dva5o48sv6fkd" path="res://dialogues/interact.tres" id="22_u74er"]
 [ext_resource type="PackedScene" uid="uid://1ovtd7dawkr6" path="res://scenes/game_scenes/prefabs/dialog.tscn" id="23_11ufv"]
 [ext_resource type="PackedScene" uid="uid://ghuvjtihmhxv" path="res://scenes/game_scenes/prefabs/character.tscn" id="24_34hmd"]
 [ext_resource type="Theme" uid="uid://dc6c1peo4pfyr" path="res://addons/dialogue_nodes/themes/bubbly.theme" id="26_7egdx"]
@@ -30,45 +19,6 @@
 vertices = PackedVector2Array(-109, -1423, 1027, -1404, 1910, -629, 2329, 558, 907, 1529, -1430, 1047, -1195, -972)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1195, -972, -1430, 1047, 907, 1529, 2329, 558, 1910, -629, 1027, -1404, -109, -1423)])
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_o6q7h"]
-radius = 51.8
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_garof"]
-resource_local_to_scene = true
-shader = ExtResource("3_1jd5w")
-shader_parameter/is_shaking = true
-shader_parameter/amplitude = 0.0
-shader_parameter/is_flickering = false
-shader_parameter/flicker_color = Color(1, 1, 1, 1)
-shader_parameter/flicker_frequency = 10.0
-
-[sub_resource type="Resource" id="Resource_ej8lc"]
-script = ExtResource("6_74d53")
-sprite_path = NodePath("../Sprite2D")
-max_amplitude = 5.0
-shake_time = 1.0
-
-[sub_resource type="Resource" id="Resource_iuduy"]
-script = ExtResource("7_dkkl8")
-slowmo_time = 0.5
-slowmo_scale = 0.5
-
-[sub_resource type="Resource" id="Resource_jtvvk"]
-script = ExtResource("8_31s2l")
-sprite_path = NodePath("../Sprite2D")
-flicker_time = 1.0
-
-[sub_resource type="Resource" id="Resource_qgl23"]
-script = ExtResource("9_f17s0")
-particles_path = NodePath("../../CPUParticles2D")
-
-[sub_resource type="Resource" id="Resource_8ev03"]
-script = ExtResource("14_imj4u")
-camera_trauma = 1.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5ma2"]
-size = Vector2(100, 100)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysn8p"]
 texture = ExtResource("19_ax58t")
@@ -95,91 +45,18 @@ script = ExtResource("1_aodx8")
 position = Vector2(-203, -124)
 navigation_polygon = SubResource("NavigationPolygon_p3djs")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(693, -27)
-motion_mode = 1
-script = ExtResource("1_jfvbw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_o6q7h")
-
-[node name="Node2D" type="Node2D" parent="Player"]
-script = ExtResource("2_hc0u8")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Node2D"]
-material = SubResource("ShaderMaterial_garof")
-texture = ExtResource("4_rxfhd")
-
-[node name="HitBox" type="Area2D" parent="Player/Node2D"]
-visible = false
-collision_mask = 2
-script = ExtResource("5_l1rh8")
-hp = 50.0
-damage_effects = Array[ExtResource("6_t38u7")]([SubResource("Resource_ej8lc"), SubResource("Resource_iuduy"), SubResource("Resource_jtvvk"), SubResource("Resource_qgl23")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Node2D/HitBox"]
-shape = SubResource("CircleShape2D_o6q7h")
-
-[node name="Gun" type="Node2D" parent="Player/Node2D"]
-visible = false
-script = ExtResource("10_ynff2")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Node2D/Gun"]
-texture_filter = 1
-position = Vector2(89, 0)
-scale = Vector2(5.815, 5.815)
-texture = ExtResource("11_c15hv")
-
-[node name="Node2D" type="Node2D" parent="Player/Node2D/Gun/Sprite2D"]
-position = Vector2(4.12726, -2.06363)
-scale = Vector2(0.171969, 0.171969)
-script = ExtResource("12_eilnm")
-bullet_scene = ExtResource("13_eyne8")
-shoot_effects = Array[ExtResource("6_t38u7")]([SubResource("Resource_8ev03")])
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Player"]
-emitting = false
-amount = 1000
-lifetime = 0.5
-one_shot = true
-explosiveness = 0.15
-lifetime_randomness = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 86.54
-initial_velocity_max = 86.54
+[node name="Player" parent="." node_paths=PackedStringArray("dialog_control") instance=ExtResource("2_di5cs")]
+dialog_control = NodePath("../CanvasLayer/Dialog")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(841.25, 9.5)
-zoom = Vector2(0.1, 0.1)
+position = Vector2(1041, -299.75)
+zoom = Vector2(0.577368, 0.577368)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
 camera = NodePath("..")
 min_zoom = 0.1
-targets = Array[NodePath]([NodePath("../../Player"), NodePath("../../Spikes"), NodePath("../../Door"), NodePath("../../Character")])
-
-[node name="CameraShaker" type="Node" parent="Camera2D"]
-script = ExtResource("16_hgb43")
-max_offset = Vector2(20, 20)
-max_roll = 0.01
-power = 1.0
-
-[node name="Spikes" type="Area2D" parent="."]
-position = Vector2(975, 249)
-collision_layer = 2
-script = ExtResource("17_qh4jg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Spikes"]
-modulate = Color(1, 0, 0, 1)
-texture = ExtResource("4_rxfhd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
-modulate = Color(1, 0, 0, 1)
-shape = SubResource("RectangleShape2D_n5ma2")
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Spikes"]
-radius = 175.82
+targets = Array[NodePath]([NodePath("../../Player"), NodePath("../../Door"), NodePath("../../Character"), NodePath("../../House")])
 
 [node name="WallTileMap" type="TileMapLayer" parent="."]
 scale = Vector2(20, 20)
@@ -190,15 +67,59 @@ tile_set = SubResource("TileSet_mb1ej")
 position = Vector2(74, -478)
 scale = Vector2(1.68, 1.68)
 dialog_control = NodePath("../CanvasLayer/Dialog")
-dialog_data = ExtResource("22_u74er")
 
 [node name="Character" parent="." node_paths=PackedStringArray("dialog_control") instance=ExtResource("24_34hmd")]
 position = Vector2(1623, 294)
 dialog_control = NodePath("../CanvasLayer/Dialog")
 
+[node name="House" parent="." node_paths=PackedStringArray("dialog_control", "money_label") instance=ExtResource("10_s0ksp")]
+position = Vector2(1774, -988)
+dialog_control = NodePath("../CanvasLayer/Dialog")
+dialog_data = ExtResource("11_58n7l")
+money_label = NodePath("../CanvasLayer/Money")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Dialog" parent="CanvasLayer" instance=ExtResource("23_11ufv")]
-offset_top = -368.0
-offset_bottom = -218.0
+offset_left = 57.0
+offset_top = -196.0
+offset_right = 1112.0
+offset_bottom = -46.0
 theme = ExtResource("26_7egdx")
+
+[node name="ExpCount" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("dialog_control")]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "EXP: 0"
+script = ExtResource("13_glcna")
+dialog_control = NodePath("../Dialog")
+
+[node name="Money" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("tenant_label")]
+offset_left = -1.0
+offset_top = 28.0
+offset_right = 56.0
+offset_bottom = 51.0
+text = "Money: 0"
+script = ExtResource("14_hjmdp")
+tenant_label = NodePath("../Tenant")
+
+[node name="Tenant" type="Label" parent="CanvasLayer"]
+offset_top = 55.0
+offset_right = 72.0
+offset_bottom = 78.0
+text = "Tenant: 0"
+script = ExtResource("14_nf0ku")
+
+[node name="Time" type="Label" parent="CanvasLayer"]
+offset_top = 83.0
+offset_right = 40.0
+offset_bottom = 106.0
+text = "Time: "
+script = ExtResource("14_yfr4n")
+
+[connection signal="experience_cut" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_experience_cut"]
+[connection signal="on_buy_house" from="CanvasLayer/Dialog" to="House" method="_on_dialog_on_buy_house"]
+[connection signal="on_success_rent" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_on_success"]
+[connection signal="on_success_rent" from="CanvasLayer/Dialog" to="CanvasLayer/Tenant" method="_on_dialog_on_success"]
+[connection signal="on_exp_cut" from="CanvasLayer/ExpCount" to="CanvasLayer/Tenant" method="_on_exp_count_on_exp_cut"]
+[connection signal="on_new_month" from="CanvasLayer/Time" to="CanvasLayer/Money" method="_on_time_on_new_month"]
