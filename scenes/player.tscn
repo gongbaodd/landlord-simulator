@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://c2cxut1xg0fkv"]
+[gd_scene load_steps=31 format=3 uid="uid://c2cxut1xg0fkv"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_rtlc0"]
 [ext_resource type="Texture2D" uid="uid://cljo7lix0r7j" path="res://sprites/common/Player1-Recovered-Sheet.png" id="2_1swsq"]
+[ext_resource type="Texture2D" uid="uid://cl3lk1rndu8jl" path="res://sprites/common/Player_Sheet.png" id="3_yotej"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lns6r"]
 atlas = ExtResource("2_1swsq")
@@ -159,16 +160,58 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ianjm"]
 
+[sub_resource type="Animation" id="Animation_kyyrm"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_lc6iw"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_1p6vr"]
+resource_name = "move_down"
+
+[sub_resource type="Animation" id="Animation_wqkdv"]
+resource_name = "move_left"
+
+[sub_resource type="Animation" id="Animation_dh465"]
+resource_name = "move_right"
+
+[sub_resource type="Animation" id="Animation_j5g7d"]
+resource_name = "move_up"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_toiqi"]
+_data = {
+"RESET": SubResource("Animation_kyyrm"),
+"idle": SubResource("Animation_lc6iw"),
+"move_down": SubResource("Animation_1p6vr"),
+"move_left": SubResource("Animation_wqkdv"),
+"move_right": SubResource("Animation_dh465"),
+"move_up": SubResource("Animation_j5g7d")
+}
+
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_rtlc0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_hagbv")
 animation = &"move_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
 shape = SubResource("CapsuleShape2D_ianjm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_yotej")
+hframes = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_toiqi")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+anim_player = NodePath("../AnimationPlayer")

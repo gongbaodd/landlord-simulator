@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvqirlofwhl5g"]
+[gd_scene load_steps=6 format=3 uid="uid://bvqirlofwhl5g"]
 
 [ext_resource type="Texture2D" uid="uid://ctuyqlhugsiwo" path="res://icon.svg" id="1_bn4c2"]
 [ext_resource type="Script" path="res://scenes/game_scenes/prefabs/door.gd" id="1_s861w"]
+[ext_resource type="Resource" uid="uid://dva5o48sv6fkd" path="res://scenes/game_scenes/dialogues/interact.tres" id="2_teqr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdvys"]
 size = Vector2(126, 126)
@@ -12,6 +13,7 @@ size = Vector2(182, 191)
 [node name="Door" type="Area2D"]
 position = Vector2(153, -467)
 script = ExtResource("1_s861w")
+dialog_data = ExtResource("2_teqr5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -28,3 +30,4 @@ position = Vector2(-2, 0.5)
 shape = SubResource("RectangleShape2D_m7ekb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

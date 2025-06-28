@@ -1,29 +1,13 @@
 extends CharacterBody2D
 
-var speed = 500
-var player_state
+@export var dialog_control: DialogControl
+const speed = 500
 
-func _physics_process(delta: float) -> void:
-	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
-	
-	if direction.x == 0 and direction.y == 0:
-		player_state = "idle"
-	elif direction.x != 0 or direction.y != 0:
-		player_state = "walking"
-		
-	velocity = direction * speed
-	move_and_slide()
-	#play_anim(direction)
+@onready var animation_tree: AnimationTree = get_node("animation").get_node("AnimationTree")
 
-func play_anim(dir):
-	if player_state == "idle":
-		$AnimatedSprite2D.play("idle")
-	if player_state == "walking":
-		$AnimatedSprite2D.play("walking")
-		if dir.y == -1:
-			$AnimatedSprite2D.play("move_up")
-		if dir.x == -1:
-			$AnimatedSprite2D.play("move_left")
-		if dir.y == 1:
-			$AnimatedSprite2D.play("move_down")
-	
+func _physics_process(_delta: float) -> void:
+	if !dialog_control.dialogue_box.visible:
+		var direction = Input.get_vector("move_left","move_right","move_up","move_down")
+		velocity = direction * speed
+		animation_tree.set("parameters/blend_position", direction)
+		move_and_slide()
