@@ -1,14 +1,24 @@
-[gd_scene load_steps=18 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=28 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="PackedScene" uid="uid://kjcwkplue3h6" path="res://scenes/game_scenes/prefabs/player.tscn" id="2_di5cs"]
+[ext_resource type="PackedScene" uid="uid://b8ywrl5vxqk2y" path="res://Character1.tscn" id="7_xq1ij"]
+[ext_resource type="PackedScene" uid="uid://gq46a03y50wo" path="res://Character2.tscn" id="8_2mowb"]
+[ext_resource type="PackedScene" uid="uid://bqxpxufft8y7r" path="res://Character3.tscn" id="9_w334w"]
 [ext_resource type="PackedScene" uid="uid://bchg1u2vpawdl" path="res://scenes/game_scenes/prefabs/house.tscn" id="10_s0ksp"]
+[ext_resource type="PackedScene" uid="uid://c31715dbkr8qt" path="res://Character4.tscn" id="10_uhcwv"]
+[ext_resource type="PackedScene" uid="uid://y6m1w6d4c6m0" path="res://Character5.tscn" id="11_2m1ox"]
 [ext_resource type="Resource" uid="uid://b63ccow78dhq2" path="res://scenes/game_scenes/dialogues/house.tres" id="11_58n7l"]
+[ext_resource type="PackedScene" uid="uid://1kl3ww22nlue" path="res://Character6.tscn" id="12_1gqho"]
 [ext_resource type="Script" path="res://scenes/game_scenes/exp_count.gd" id="13_glcna"]
+[ext_resource type="PackedScene" uid="uid://bsdwntlmv1tnj" path="res://Character7.tscn" id="13_kv0ss"]
 [ext_resource type="Script" path="res://scenes/game_scenes/money.gd" id="14_hjmdp"]
 [ext_resource type="Script" path="res://scenes/game_scenes/tenant.gd" id="14_nf0ku"]
+[ext_resource type="PackedScene" uid="uid://bwu00nn4h1gx0" path="res://Character8.tscn" id="14_ru6v4"]
 [ext_resource type="Script" path="res://scenes/game_scenes/time.gd" id="14_yfr4n"]
+[ext_resource type="PackedScene" uid="uid://drm2blhbskylp" path="res://Character9.tscn" id="15_bi36q"]
 [ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="15_lp3aw"]
+[ext_resource type="PackedScene" uid="uid://c65hbwk7vhk41" path="res://Character10.tscn" id="16_aceem"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="19_ax58t"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
 [ext_resource type="PackedScene" uid="uid://1ovtd7dawkr6" path="res://scenes/game_scenes/prefabs/dialog.tscn" id="23_11ufv"]
@@ -49,8 +59,8 @@ navigation_polygon = SubResource("NavigationPolygon_p3djs")
 dialog_control = NodePath("../CanvasLayer/Dialog")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1041, -299.75)
-zoom = Vector2(0.577368, 0.577368)
+position = Vector2(923, -422.5)
+zoom = Vector2(0.496124, 0.496124)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -69,8 +79,38 @@ scale = Vector2(1.68, 1.68)
 dialog_control = NodePath("../CanvasLayer/Dialog")
 
 [node name="Character" parent="." node_paths=PackedStringArray("dialog_control") instance=ExtResource("24_34hmd")]
-position = Vector2(1623, 294)
+position = Vector2(1151, -197)
 dialog_control = NodePath("../CanvasLayer/Dialog")
+
+[node name="Node2D" parent="Character" instance=ExtResource("7_xq1ij")]
+position = Vector2(185, 10)
+
+[node name="Node2D2" parent="Character" instance=ExtResource("8_2mowb")]
+position = Vector2(176, 169)
+
+[node name="Node2D3" parent="Character" instance=ExtResource("9_w334w")]
+position = Vector2(193, -143)
+
+[node name="Node2D4" parent="Character" instance=ExtResource("10_uhcwv")]
+position = Vector2(612, 17)
+
+[node name="Node2D5" parent="Character" instance=ExtResource("11_2m1ox")]
+position = Vector2(327, -142)
+
+[node name="Node2D6" parent="Character" instance=ExtResource("12_1gqho")]
+position = Vector2(568, -127)
+
+[node name="Node2D7" parent="Character" instance=ExtResource("13_kv0ss")]
+position = Vector2(285, -76)
+
+[node name="Node2D8" parent="Character" instance=ExtResource("14_ru6v4")]
+position = Vector2(470, 43)
+
+[node name="Node2D9" parent="Character" instance=ExtResource("15_bi36q")]
+position = Vector2(471, -69)
+
+[node name="Node2D10" parent="Character" instance=ExtResource("16_aceem")]
+position = Vector2(292, 0)
 
 [node name="House" parent="." node_paths=PackedStringArray("dialog_control", "money_label") instance=ExtResource("10_s0ksp")]
 position = Vector2(1774, -988)

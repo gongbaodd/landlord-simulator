@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqxpxufft8y7r"]
+
+[ext_resource type="Texture2D" uid="uid://d1vhrbd31om0o" path="res://sprites/common/NPC-3-Sheet.png" id="1_lgyju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg01h"]
+atlas = ExtResource("1_lgyju")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7twa"]
+atlas = ExtResource("1_lgyju")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnlco"]
+atlas = ExtResource("1_lgyju")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6ova"]
+atlas = ExtResource("1_lgyju")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87c5w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg01h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7twa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnlco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6ova")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_87c5w")
+animation = &"move_up"
