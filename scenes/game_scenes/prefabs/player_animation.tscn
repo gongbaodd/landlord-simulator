@@ -1,5 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://2jr827ps4sj7"]
+[gd_scene load_steps=37 format=3 uid="uid://2jr827ps4sj7"]
 
+[ext_resource type="Texture2D" uid="uid://eyes2u41fkxu" path="res://sprites/common/Player1-add.png" id="1_0of8o"]
 [ext_resource type="Texture2D" uid="uid://cljo7lix0r7j" path="res://sprites/common/Player1-Recovered-Sheet.png" id="1_yehlb"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4o0kt"]
@@ -215,13 +216,21 @@ _data = {
 "move_up": SubResource("Animation_vb5xl")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6tisp"]
-atlas = ExtResource("1_yehlb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnqvr"]
+atlas = ExtResource("1_0of8o")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndypc"]
+atlas = ExtResource("1_0of8o")
 region = Rect2(0, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n85ox"]
-atlas = ExtResource("1_yehlb")
-region = Rect2(16, 0, 16, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr8s4"]
+atlas = ExtResource("1_0of8o")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh2ot"]
+atlas = ExtResource("1_0of8o")
+region = Rect2(48, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3bfm"]
 atlas = ExtResource("1_yehlb")
@@ -291,10 +300,16 @@ region = Rect2(112, 0, 16, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6tisp")
+"texture": SubResource("AtlasTexture_pnqvr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n85ox")
+"texture": SubResource("AtlasTexture_ndypc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr8s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh2ot")
 }],
 "loop": true,
 "name": &"idle",
@@ -374,7 +389,7 @@ animations = [{
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendSpace2D_eidwb")
 anim_player = NodePath("../AnimationPlayer")
-parameters/blend_position = Vector2(0.003003, 0.00531912)
+parameters/blend_position = Vector2(0.0917431, -0.0425532)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -386,4 +401,3 @@ position = Vector2(27, 52)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_tepl5")
 animation = &"idle"
-frame = 1
