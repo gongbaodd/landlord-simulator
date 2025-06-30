@@ -60,7 +60,7 @@ dialog_control = NodePath("../CanvasLayer/Dialog")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(923, -422.5)
-zoom = Vector2(0.496124, 0.496124)
+zoom = Vector2(0.1, 0.1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
