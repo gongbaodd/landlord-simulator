@@ -33,6 +33,33 @@ x_label = "y"
 y_label = "x"
 blend_mode = 1
 
+[sub_resource type="Animation" id="Animation_8q2fu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
 [sub_resource type="Animation" id="Animation_2g5m5"]
 resource_name = "idle"
 length = 0.066
@@ -48,33 +75,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-
-[sub_resource type="Animation" id="Animation_8q2fu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -118,8 +118,8 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_vb5xl"]
-resource_name = "move_up"
+[sub_resource type="Animation" id="Animation_g7k5a"]
+resource_name = "move_left"
 length = 0.133
 loop_mode = 1
 tracks/0/type = "value"
@@ -132,7 +132,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"move_up"]
+"values": [&"move_left"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -176,8 +176,8 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_g7k5a"]
-resource_name = "move_left"
+[sub_resource type="Animation" id="Animation_vb5xl"]
+resource_name = "move_up"
 length = 0.133
 loop_mode = 1
 tracks/0/type = "value"
@@ -190,7 +190,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"move_left"]
+"values": [&"move_up"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
