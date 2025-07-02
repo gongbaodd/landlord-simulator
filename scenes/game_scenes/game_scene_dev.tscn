@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=24 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="PackedScene" uid="uid://kjcwkplue3h6" path="res://scenes/game_scenes/prefabs/player.tscn" id="2_di5cs"]
 [ext_resource type="Texture2D" uid="uid://ckj088u5lcohr" path="res://sprites/tilesets/tilemap_packed.png" id="4_2irra"]
+[ext_resource type="PackedScene" uid="uid://xsl08vnnq335" path="res://player_room_scene.tscn" id="6_0geym"]
+[ext_resource type="PackedScene" path="res://scenes/scene_transitions/fade_transition.tscn" id="7_tu12u"]
 [ext_resource type="PackedScene" uid="uid://b8ywrl5vxqk2y" path="res://Character1.tscn" id="7_xq1ij"]
 [ext_resource type="PackedScene" uid="uid://gq46a03y50wo" path="res://Character2.tscn" id="8_2mowb"]
 [ext_resource type="PackedScene" uid="uid://bqxpxufft8y7r" path="res://Character3.tscn" id="9_w334w"]
@@ -566,6 +568,8 @@ targets = Array[NodePath]([NodePath("../../Player"), NodePath("../../Door"), Nod
 [node name="Door" parent="." instance=ExtResource("20_rp6dp")]
 position = Vector2(74, -478)
 scale = Vector2(1.68, 1.68)
+room_scene = ExtResource("6_0geym")
+transition = ExtResource("7_tu12u")
 
 [node name="Character" parent="." instance=ExtResource("24_34hmd")]
 position = Vector2(1151, -197)

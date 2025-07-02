@@ -5,6 +5,9 @@ extends Area2D
 @export var closed_color: Color = Color(1, 0, 0)
 @export var open_color: Color = Color(0, 1, 0)
 
+@export var room_scene: PackedScene
+@export var transition: PackedScene
+
 var player_inside := false
 var is_open := false
 var is_visited := false
@@ -21,6 +24,11 @@ func _process(_delta: float) -> void:
 		is_open = !is_open
 		_update_door_state()
 		dialog_control.hide_dialogue()
+		if is_open:
+			SceneTransitionManager.change_scene_with_transition(
+				room_scene,
+				transition
+			)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
