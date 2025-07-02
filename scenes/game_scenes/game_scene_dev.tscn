@@ -557,7 +557,7 @@ navigation_polygon = SubResource("NavigationPolygon_p3djs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(923, -422.5)
-zoom = Vector2(0.423773, 0.423773)
+zoom = Vector2(0.577368, 0.577368)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
