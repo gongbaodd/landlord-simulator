@@ -1,14 +1,15 @@
 extends Area2D
 
-@export var dialog_control: DialogControl
 @export var dialog_data: DialogueData
 @export var money_label: Label
 
 const house_price = 1500
 
 var player_inside := false
+var dialog_control: DialogControl
 
 func _ready() -> void:
+	dialog_control = GameManager.dialog_control
 	if !dialog_control:
 		push_error("Dialog control not set. Please assign a Control node to dialog_control.")
 

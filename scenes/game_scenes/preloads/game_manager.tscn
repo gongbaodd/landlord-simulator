@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7fi57s7vjlel"]
+
+[ext_resource type="Script" path="res://scenes/game_scenes/preloads/game_manager.gd" id="1_bg0tg"]
+[ext_resource type="PackedScene" uid="uid://1ovtd7dawkr6" path="res://scenes/game_scenes/prefabs/dialog.tscn" id="2_ec4m5"]
+[ext_resource type="Theme" uid="uid://dc6c1peo4pfyr" path="res://addons/dialogue_nodes/themes/bubbly.theme" id="3_g02dl"]
+[ext_resource type="Script" path="res://scenes/game_scenes/exp_count.gd" id="4_wllcl"]
+[ext_resource type="Script" path="res://scenes/game_scenes/money.gd" id="5_j5nng"]
+[ext_resource type="Script" path="res://scenes/game_scenes/tenant.gd" id="6_c7824"]
+[ext_resource type="Script" path="res://scenes/game_scenes/time.gd" id="7_lufdc"]
+
+[node name="Canvas" type="Node2D" node_paths=PackedStringArray("dialog_control")]
+script = ExtResource("1_bg0tg")
+dialog_control = NodePath("CanvasLayer/Dialog")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialog" parent="CanvasLayer" instance=ExtResource("2_ec4m5")]
+offset_left = 57.0
+offset_top = -196.0
+offset_right = 1112.0
+offset_bottom = -46.0
+theme = ExtResource("3_g02dl")
+
+[node name="ExpCount" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("dialog_control")]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "EXP: 0"
+script = ExtResource("4_wllcl")
+dialog_control = NodePath("../Dialog")
+
+[node name="Money" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("tenant_label")]
+offset_left = -1.0
+offset_top = 28.0
+offset_right = 56.0
+offset_bottom = 51.0
+text = "Money: 0"
+script = ExtResource("5_j5nng")
+tenant_label = NodePath("../Tenant")
+
+[node name="Tenant" type="Label" parent="CanvasLayer"]
+offset_top = 55.0
+offset_right = 72.0
+offset_bottom = 78.0
+text = "Tenant: 0"
+script = ExtResource("6_c7824")
+
+[node name="Time" type="Label" parent="CanvasLayer"]
+offset_top = 83.0
+offset_right = 40.0
+offset_bottom = 106.0
+text = "Time: "
+script = ExtResource("7_lufdc")
+
+[connection signal="experience_cut" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_experience_cut"]
+[connection signal="on_success_rent" from="CanvasLayer/Dialog" to="CanvasLayer/ExpCount" method="_on_dialog_on_success"]
+[connection signal="on_success_rent" from="CanvasLayer/Dialog" to="CanvasLayer/Tenant" method="_on_dialog_on_success"]
+[connection signal="on_exp_cut" from="CanvasLayer/ExpCount" to="CanvasLayer/Tenant" method="_on_exp_count_on_exp_cut"]
+[connection signal="on_new_month" from="CanvasLayer/Time" to="CanvasLayer/Money" method="_on_time_on_new_month"]

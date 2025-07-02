@@ -1,6 +1,5 @@
 extends Area2D
 
-@export var dialog_control: DialogControl
 @export var dialog_data: DialogueData
 
 @export var closed_color: Color = Color(1, 0, 0)
@@ -9,10 +8,12 @@ extends Area2D
 var player_inside := false
 var is_open := false
 var is_visited := false
+var dialog_control: DialogControl
 
 func _ready() -> void:
 	if !dialog_control:
 		push_error("Dialog control not set. Please assign a Control node to dialog_control.")
+	dialog_control = GameManager.dialog_control
 	_update_door_state()
 
 func _process(_delta: float) -> void:
