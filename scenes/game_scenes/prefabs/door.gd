@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var dialog_data: DialogueData
+# @export var dialog_data: DialogueData
 
 @export var closed_color: Color = Color(1, 0, 0)
 @export var open_color: Color = Color(0, 1, 0)
@@ -34,7 +34,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_inside = true
 		if !is_visited:
-			dialog_control.show_dialogue(dialog_data)
+			# dialog_control.show_dialogue(dialog_data)
 			is_visited = true
 
 func _on_body_exited(body: Node2D) -> void:

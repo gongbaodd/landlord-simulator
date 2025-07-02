@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var dialog_data: DialogueData
+# @export var dialog_data: DialogueData
 @export var money_label: Label
 
 const house_price = 1500
@@ -16,7 +16,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if player_inside and Input.is_action_just_pressed("use"):
-		dialog_control.show_dialogue(dialog_data,)
+		pass
+		# dialog_control.show_dialogue(dialog_data,)
 
 
 func _on_body_entered(body:Node2D) -> void:

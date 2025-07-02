@@ -7,7 +7,7 @@ func _ready():
 	dialogue_box.visible = false
 
 var cut_experience_amount: int = 0
-func show_dialogue(dialogData: DialogueData, user_cut_experience_count: int = cut_experience_amount) -> void:
+func show_dialogue(dialogData: Node, user_cut_experience_count: int = cut_experience_amount) -> void:
 	dialogue_box.visible = true
 	if not dialogue_box.is_running():
 		dialogue_box.data = dialogData
