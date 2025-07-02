@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var dialog_control: DialogControl
-
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var time: Label = canvas_layer.get_node("Time")
 

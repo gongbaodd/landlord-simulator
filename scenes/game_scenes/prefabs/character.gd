@@ -4,12 +4,6 @@ extends Area2D
 @export var cut_experience_amount: int = 10
 
 var player_inside := false
-var dialog_control: DialogControl
-
-func _ready() -> void:
-	dialog_control = GameManager.dialog_control
-	if !dialog_control:
-		push_error("Dialog control not set. Please assign a Control node to dialog_control.")
 
 
 func _process(_delta: float) -> void:
@@ -25,4 +19,3 @@ func _on_body_entered(body:Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		player_inside = false
-

@@ -11,19 +11,16 @@ extends Area2D
 var player_inside := false
 var is_open := false
 var is_visited := false
-var dialog_control: DialogControl
+var balloon_scene: Node
 
 func _ready() -> void:
-	dialog_control = GameManager.dialog_control
-	if !dialog_control:
-		push_error("Dialog control not set. Please assign a Control node to dialog_control.")
 	_update_door_state()
 
 func _process(_delta: float) -> void:
 	if player_inside and Input.is_action_just_pressed("use"):
 		is_open = !is_open
 		_update_door_state()
-		dialog_control.hide_dialogue()
+		balloon_scene.queue_free()
 		if is_open:
 			SceneTransitionManager.change_scene_with_transition(
 				room_scene,
@@ -34,7 +31,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_inside = true
 		if !is_visited:
-			# dialog_control.show_dialogue(dialog_data)
+			balloon_scene = DialogueManager.show_example_dialogue_balloon(load("res://scenes/game_scenes/dialogues/interact.dialogue"), "start")
 			is_visited = true
 
 func _on_body_exited(body: Node2D) -> void:

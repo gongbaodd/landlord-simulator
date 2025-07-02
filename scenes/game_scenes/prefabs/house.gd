@@ -6,12 +6,6 @@ extends Area2D
 const house_price = 1500
 
 var player_inside := false
-var dialog_control: DialogControl
-
-func _ready() -> void:
-	dialog_control = GameManager.dialog_control
-	if !dialog_control:
-		push_error("Dialog control not set. Please assign a Control node to dialog_control.")
 
 
 func _process(_delta: float) -> void:
