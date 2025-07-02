@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://lbgd5ognbe1s"
+path="res://.godot/imported/house.dialogue-cb0d73d6b303f6d64a63e48cb3f39028.tres"
+
+[deps]
+
+source_file="res://scenes/game_scenes/dialogues/house.dialogue"
+dest_files=["res://.godot/imported/house.dialogue-cb0d73d6b303f6d64a63e48cb3f39028.tres"]
+
+[params]
+
+defaults=true

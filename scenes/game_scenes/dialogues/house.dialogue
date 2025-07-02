@@ -1,0 +1,8 @@
+~ start
+House: Use 1500 money to buy the house?
+- OK [if GameManager.buy_house()] => success
+- No => END
+
+~ success
+House: I am yours now.
+=> END
