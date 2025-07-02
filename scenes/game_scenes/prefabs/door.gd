@@ -11,9 +11,9 @@ var is_visited := false
 var dialog_control: DialogControl
 
 func _ready() -> void:
+	dialog_control = GameManager.dialog_control
 	if !dialog_control:
 		push_error("Dialog control not set. Please assign a Control node to dialog_control.")
-	dialog_control = GameManager.dialog_control
 	_update_door_state()
 
 func _process(_delta: float) -> void:

@@ -9,13 +9,19 @@ enum TimeType {
 var time_type: TimeType = TimeType.START_OF_MONTH
 var elapsed_time: float = 0.0
 var _last_time_type: TimeType = TimeType.START_OF_MONTH
+var _is_started: bool = false
 
 func _ready() -> void:
 	_update_time_type()
 
+func start_countdown() -> void:
+	_is_started = true
+
 signal on_new_month()
 
 func _process(delta: float) -> void:
+	if not _is_started:
+		return
 	elapsed_time += delta
 	var cycle_time = int(elapsed_time) % 60
 	if cycle_time < 20:
