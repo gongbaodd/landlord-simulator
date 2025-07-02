@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scenes/game_scenes/preloads/game_manager.gd" id="1_bg0tg"]
 [ext_resource type="PackedScene" uid="uid://1ovtd7dawkr6" path="res://scenes/game_scenes/prefabs/dialog.tscn" id="2_ec4m5"]
 [ext_resource type="Theme" uid="uid://dc6c1peo4pfyr" path="res://addons/dialogue_nodes/themes/bubbly.theme" id="3_g02dl"]
-[ext_resource type="Script" path="res://scenes/game_scenes/exp_count.gd" id="4_wllcl"]
-[ext_resource type="Script" path="res://scenes/game_scenes/money.gd" id="5_j5nng"]
-[ext_resource type="Script" path="res://scenes/game_scenes/tenant.gd" id="6_c7824"]
-[ext_resource type="Script" path="res://scenes/game_scenes/time.gd" id="7_lufdc"]
+[ext_resource type="Script" path="res://scenes/game_scenes/preloads/exp_count.gd" id="4_wllcl"]
+[ext_resource type="Script" path="res://scenes/game_scenes/preloads/money.gd" id="5_j5nng"]
+[ext_resource type="Script" path="res://scenes/game_scenes/preloads/tenant.gd" id="6_c7824"]
+[ext_resource type="Script" path="res://scenes/game_scenes/preloads/time.gd" id="7_lufdc"]
 
 [node name="Canvas" type="Node2D" node_paths=PackedStringArray("dialog_control")]
 script = ExtResource("1_bg0tg")
