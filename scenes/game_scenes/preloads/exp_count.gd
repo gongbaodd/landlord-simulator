@@ -4,6 +4,7 @@ extends Label
 
 var experience_count := 0
 const success_add_exp_count = 5
+const exp_needed_to_rent = 10
 
 func _ready() -> void:
 	_update_display()
@@ -11,18 +12,13 @@ func _ready() -> void:
 func _update_display() -> void:
 	text = "EXP: " + str(experience_count)
 
-signal on_exp_cut
-signal on_exp_cut_failed
+func is_exp_enough() -> bool:
+	return experience_count >= exp_needed_to_rent
 
-func _on_dialog_experience_cut(amount:int) -> void:
-	if experience_count - amount > 0:
-		experience_count -= amount
-		_on_dialog_on_success()
-		on_exp_cut.emit()
-	else:
-		on_exp_cut_failed.emit()
+func rent_room_with_exp() -> void:
+	experience_count -= experience_count
+	_update_display()
 
-
-func _on_dialog_on_success() -> void:
+func rent_room() -> void:
 	experience_count += success_add_exp_count
 	_update_display()

@@ -11,12 +11,11 @@ script = ExtResource("1_bg0tg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ExpCount" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("dialog_control")]
+[node name="ExpCount" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "EXP: 0"
 script = ExtResource("4_wllcl")
-dialog_control = NodePath("")
 
 [node name="Money" type="Label" parent="CanvasLayer" node_paths=PackedStringArray("tenant_label")]
 offset_left = -1.0
@@ -41,5 +40,4 @@ offset_bottom = 106.0
 text = "Time: "
 script = ExtResource("7_lufdc")
 
-[connection signal="on_exp_cut" from="CanvasLayer/ExpCount" to="CanvasLayer/Tenant" method="_on_exp_count_on_exp_cut"]
 [connection signal="on_new_month" from="CanvasLayer/Time" to="CanvasLayer/Money" method="_on_time_on_new_month"]

@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 		is_open = !is_open
 		_update_door_state()
 		balloon_scene.queue_free()
+		GameManager.running_dialog = null
 		if is_open:
 			SceneTransitionManager.change_scene_with_transition(
 				room_scene,
@@ -33,6 +34,7 @@ func _on_body_entered(body: Node2D) -> void:
 		if !is_visited:
 			balloon_scene = DialogueManager.show_example_dialogue_balloon(load("res://scenes/game_scenes/dialogues/interact.dialogue"), "start")
 			is_visited = true
+			GameManager.running_dialog = balloon_scene
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "Player":

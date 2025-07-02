@@ -1,8 +1,5 @@
 ~ start
 House: Use 1500 money to buy the house?
-- OK [if GameManager.buy_house()] => success
+- OK [if GameManager.is_money_enough()] 
+	House: Here is your key. [set GameManager.buy_house()]
 - No => END
-
-~ success
-House: I am yours now.
-=> END
