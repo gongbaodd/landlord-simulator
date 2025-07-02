@@ -22,6 +22,17 @@ jobs:
           use-dotnet: false
       - name: Web Build
         run: |
+          echo "Running Godot import and capturing output..."
+          godot --headless --import --path . 2>&1 | tee godot_output.log
+          echo "Checking Godot output for errors..."
+          if grep -q "Parse error" godot_output.log; then
+              echo "ERROR: Godot build failed due to a Parse error in script."
+              exit 1
+          fi
+          if grep -q "ERROR: Failed to load script" godot_output.log; then
+              echo "ERROR: Godot build failed due to script loading error."
+              exit 1
+          fi
           mkdir -p build/${{ matrix.platform }}
           godot -v --export-release "${{ matrix.platform }}" build/${{ matrix.platform }}/index.html --headless
 
