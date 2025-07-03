@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=33 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="PackedScene" uid="uid://kjcwkplue3h6" path="res://scenes/game_scenes/prefabs/player.tscn" id="2_di5cs"]
@@ -17,11 +17,18 @@
 [ext_resource type="PackedScene" uid="uid://drm2blhbskylp" path="res://Character9.tscn" id="15_bi36q"]
 [ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="15_lp3aw"]
 [ext_resource type="PackedScene" uid="uid://c65hbwk7vhk41" path="res://Character10.tscn" id="16_aceem"]
-[ext_resource type="PackedScene" uid="uid://dd7qf51nocwgd" path="res://scenes/game_scenes/prefabs/character1.tscn" id="19_giky2"]
+[ext_resource type="PackedScene" uid="uid://dd7qf51nocwgd" path="res://scenes/game_scenes/prefabs/characters/character1.tscn" id="19_giky2"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
-[ext_resource type="PackedScene" uid="uid://cxylovfglpn68" path="res://scenes/game_scenes/prefabs/character3.tscn" id="21_6imld"]
-[ext_resource type="PackedScene" uid="uid://caahqjcpxx4rf" path="res://scenes/game_scenes/prefabs/character2.tscn" id="21_h5vik"]
-[ext_resource type="PackedScene" uid="uid://ghuvjtihmhxv" path="res://scenes/game_scenes/prefabs/character.tscn" id="24_34hmd"]
+[ext_resource type="PackedScene" uid="uid://cxylovfglpn68" path="res://scenes/game_scenes/prefabs/characters/character3.tscn" id="21_6imld"]
+[ext_resource type="PackedScene" uid="uid://caahqjcpxx4rf" path="res://scenes/game_scenes/prefabs/characters/character2.tscn" id="21_h5vik"]
+[ext_resource type="PackedScene" uid="uid://2r7f1mtc8lcl" path="res://scenes/game_scenes/prefabs/characters/character4.tscn" id="22_480o7"]
+[ext_resource type="PackedScene" uid="uid://12glmaq2ufn0" path="res://scenes/game_scenes/prefabs/characters/character5.tscn" id="23_arqc8"]
+[ext_resource type="PackedScene" uid="uid://ghuvjtihmhxv" path="res://scenes/game_scenes/prefabs/characters/character.tscn" id="24_34hmd"]
+[ext_resource type="PackedScene" uid="uid://cuow3hgt72gxm" path="res://scenes/game_scenes/prefabs/characters/character6.tscn" id="24_nhqqu"]
+[ext_resource type="PackedScene" uid="uid://dipk6rynxfnhx" path="res://scenes/game_scenes/prefabs/characters/character7.tscn" id="25_v1ge4"]
+[ext_resource type="PackedScene" uid="uid://bqdvn3bg22tjo" path="res://scenes/game_scenes/prefabs/characters/character8.tscn" id="26_p4w8q"]
+[ext_resource type="PackedScene" uid="uid://dryjwnbpju233" path="res://scenes/game_scenes/prefabs/characters/character9.tscn" id="27_366d3"]
+[ext_resource type="PackedScene" uid="uid://dwivqhsq63mq6" path="res://scenes/game_scenes/prefabs/characters/character10.tscn" id="28_mymu0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yt10n"]
 texture = ExtResource("4_2irra")
@@ -574,6 +581,7 @@ room_scene = ExtResource("6_0geym")
 transition = ExtResource("7_tu12u")
 
 [node name="Character" parent="." instance=ExtResource("24_34hmd")]
+visible = false
 position = Vector2(1151, -197)
 
 [node name="Node2D" parent="Character" instance=ExtResource("7_xq1ij")]
@@ -616,6 +624,34 @@ movement_y = 1.0
 
 [node name="Character3" parent="." instance=ExtResource("21_6imld")]
 position = Vector2(609, -885)
+movement_y = 1.0
+
+[node name="Character4" parent="." instance=ExtResource("22_480o7")]
+position = Vector2(904, -1013)
+movement_y = 1.0
+
+[node name="Character5" parent="." instance=ExtResource("23_arqc8")]
+position = Vector2(342, -328)
+movement_x = 1.0
+
+[node name="Character6" parent="." instance=ExtResource("24_nhqqu")]
+position = Vector2(461, 195)
+movement_y = -1.0
+
+[node name="Character7" parent="." instance=ExtResource("25_v1ge4")]
+position = Vector2(404, -823)
+movement_y = 1.0
+
+[node name="Character8" parent="." instance=ExtResource("26_p4w8q")]
+position = Vector2(1308, -1118)
+movement_y = 1.0
+
+[node name="Character9" parent="." instance=ExtResource("27_366d3")]
+position = Vector2(999, -752)
+movement_y = 1.0
+
+[node name="Character10" parent="." instance=ExtResource("28_mymu0")]
+position = Vector2(1541, -1027)
 movement_y = 1.0
 
 [node name="House" parent="." instance=ExtResource("10_s0ksp")]

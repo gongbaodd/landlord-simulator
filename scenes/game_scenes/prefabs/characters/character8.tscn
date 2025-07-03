@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd7qf51nocwgd"]
+[gd_scene load_steps=5 format=3 uid="uid://bqdvn3bg22tjo"]
 
-[ext_resource type="Script" path="res://scenes/game_scenes/prefabs/character.gd" id="1_5xm43"]
-[ext_resource type="PackedScene" uid="uid://b8ywrl5vxqk2y" path="res://Character1.tscn" id="2_nrasb"]
+[ext_resource type="Script" path="res://scenes/game_scenes/prefabs/characters/character.gd" id="1_6sy65"]
+[ext_resource type="PackedScene" uid="uid://bwu00nn4h1gx0" path="res://Character8.tscn" id="2_y4f3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fji7f"]
 size = Vector2(85, 145)
@@ -10,13 +10,13 @@ size = Vector2(85, 145)
 size = Vector2(46, 85)
 
 [node name="Character" type="Area2D"]
-script = ExtResource("1_5xm43")
+script = ExtResource("1_6sy65")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_fji7f")
 
-[node name="Animator" parent="." instance=ExtResource("2_nrasb")]
+[node name="Animator" parent="." instance=ExtResource("2_y4f3l")]
 scale = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

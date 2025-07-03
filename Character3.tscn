@@ -100,16 +100,16 @@ _data = {
 "move_up": SubResource("Animation_7o4fv")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kylcm"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ao15n"]
 animation = &"move_up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i03y5"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a4a4l"]
 animation = &"RESET"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_a88wt"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_kylcm")
+blend_point_0/node = SubResource("AnimationNodeAnimation_ao15n")
 blend_point_0/pos = Vector2(0, 0.5)
-blend_point_1/node = SubResource("AnimationNodeAnimation_i03y5")
+blend_point_1/node = SubResource("AnimationNodeAnimation_a4a4l")
 blend_point_1/pos = Vector2(0, 0)
 x_label = "y"
 y_label = "x"

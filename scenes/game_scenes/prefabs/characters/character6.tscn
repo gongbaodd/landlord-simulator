@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuow3hgt72gxm"]
+
+[ext_resource type="Script" path="res://scenes/game_scenes/prefabs/characters/character.gd" id="1_60xlh"]
+[ext_resource type="PackedScene" uid="uid://1kl3ww22nlue" path="res://Character6.tscn" id="2_cmuvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fji7f"]
+size = Vector2(85, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls0js"]
+size = Vector2(46, 85)
+
+[node name="Character" type="Area2D"]
+script = ExtResource("1_60xlh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -0.5)
+shape = SubResource("RectangleShape2D_fji7f")
+
+[node name="Animator" parent="." instance=ExtResource("2_cmuvt")]
+scale = Vector2(3, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 2.5)
+shape = SubResource("RectangleShape2D_ls0js")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
