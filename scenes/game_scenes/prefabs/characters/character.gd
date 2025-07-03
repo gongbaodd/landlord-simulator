@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var movement_x: float = 0
 @export var movement_y: float = 0
@@ -20,9 +20,9 @@ func _process(_delta: float) -> void:
 			var dialog = DialogueManager.show_example_dialogue_balloon(load("res://scenes/game_scenes/dialogues/character.dialogue"), "start")
 			GameManager.running_dialog = dialog
 	else:
-		move_local_x(movement_x * _delta * movement_speed)
-		move_local_y(movement_y * _delta * movement_speed)
-	
+		velocity = Vector2(movement_x, movement_y) * movement_speed
+		move_and_slide()
+
 	if animation_tree:
 		animation_tree.set("parameters/blend_position", Vector2(movement_x, movement_y))
 

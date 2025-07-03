@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://kjcwkplue3h6"]
 
-[ext_resource type="Script" path="res://scenes/game_scenes/prefabs/player.gd" id="1_bs3q5"]
-[ext_resource type="PackedScene" uid="uid://2jr827ps4sj7" path="res://scenes/game_scenes/prefabs/player_animation.tscn" id="2_hun5e"]
+[ext_resource type="Script" path="res://scenes/game_scenes/prefabs/player/player.gd" id="1_bs3q5"]
+[ext_resource type="PackedScene" uid="uid://2jr827ps4sj7" path="res://scenes/game_scenes/prefabs/player/player_animation.tscn" id="2_hun5e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6q7h"]
 radius = 51.8

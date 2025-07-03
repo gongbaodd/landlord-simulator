@@ -9,7 +9,7 @@ size = Vector2(155, 147)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ls0js"]
 size = Vector2(129, 127)
 
-[node name="Character" type="Area2D"]
+[node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_wus63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,6 +24,3 @@ texture = ExtResource("2_mdu1x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_ls0js")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
