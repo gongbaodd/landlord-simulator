@@ -20,8 +20,9 @@ func _process(_delta: float) -> void:
 	if player_inside and Input.is_action_just_pressed("use"):
 		is_open = !is_open
 		_update_door_state()
-		balloon_scene.queue_free()
-		GameManager.running_dialog = null
+		if balloon_scene != null:
+			balloon_scene.queue_free()
+			GameManager.running_dialog = null
 		if is_open:
 			SceneTransitionManager.change_scene_with_transition(
 				room_scene,
