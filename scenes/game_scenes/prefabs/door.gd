@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_inside = true
-		if !is_visited:
+		if !is_visited && !GameManager.running_dialog:
 			balloon_scene = DialogueManager.show_example_dialogue_balloon(load("res://scenes/game_scenes/dialogues/interact.dialogue"), "start")
 			is_visited = true
 			GameManager.running_dialog = balloon_scene

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=24 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="PackedScene" uid="uid://kjcwkplue3h6" path="res://scenes/game_scenes/prefabs/player.tscn" id="2_di5cs"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://drm2blhbskylp" path="res://Character9.tscn" id="15_bi36q"]
 [ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="15_lp3aw"]
 [ext_resource type="PackedScene" uid="uid://c65hbwk7vhk41" path="res://Character10.tscn" id="16_aceem"]
+[ext_resource type="PackedScene" uid="uid://dd7qf51nocwgd" path="res://scenes/game_scenes/prefabs/character1.tscn" id="19_giky2"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
 [ext_resource type="PackedScene" uid="uid://ghuvjtihmhxv" path="res://scenes/game_scenes/prefabs/character.tscn" id="24_34hmd"]
 
@@ -536,9 +537,9 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_yt10n")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_p3djs"]
-vertices = PackedVector2Array(-109, -1423, 1027, -1404, 1910, -629, 2329, 558, 907, 1529, -1430, 1047, -1195, -972)
+vertices = PackedVector2Array(1042.72, -3607.16, 6331.97, -1609.71, 7061.44, 3315.21, 1476.07, 3422.99, -4435.77, 3261.21, -5240.49, -709.531, -3523.2, -4037.4)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1195, -972, -1430, 1047, 907, 1529, 2329, 558, 1910, -629, 1027, -1404, -109, -1423)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-5251, -711, -4444, 3271, 1476, 3433, 7073, 3325, 6341, -1617, 1045, -3617, -3529, -4048)])
 
 [node name="game_scene_dev" type="Node2D"]
 script = ExtResource("1_aodx8")
@@ -556,7 +557,7 @@ navigation_polygon = SubResource("NavigationPolygon_p3djs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(923, -422.5)
-zoom = Vector2(0.645995, 0.645995)
+zoom = Vector2(0.450474, 0.450474)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -602,6 +603,10 @@ position = Vector2(471, -69)
 
 [node name="Node2D10" parent="Character" instance=ExtResource("16_aceem")]
 position = Vector2(292, 0)
+
+[node name="Character1" parent="." instance=ExtResource("19_giky2")]
+position = Vector2(276, 0)
+movement_x = 1.0
 
 [node name="House" parent="." instance=ExtResource("10_s0ksp")]
 position = Vector2(1774, -988)
