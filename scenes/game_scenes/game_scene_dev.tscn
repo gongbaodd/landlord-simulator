@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=25 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="PackedScene" uid="uid://kjcwkplue3h6" path="res://scenes/game_scenes/prefabs/player.tscn" id="2_di5cs"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c65hbwk7vhk41" path="res://Character10.tscn" id="16_aceem"]
 [ext_resource type="PackedScene" uid="uid://dd7qf51nocwgd" path="res://scenes/game_scenes/prefabs/character1.tscn" id="19_giky2"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
+[ext_resource type="PackedScene" uid="uid://caahqjcpxx4rf" path="res://scenes/game_scenes/prefabs/character2.tscn" id="21_h5vik"]
 [ext_resource type="PackedScene" uid="uid://ghuvjtihmhxv" path="res://scenes/game_scenes/prefabs/character.tscn" id="24_34hmd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yt10n"]
@@ -607,6 +608,10 @@ position = Vector2(292, 0)
 [node name="Character1" parent="." instance=ExtResource("19_giky2")]
 position = Vector2(276, 0)
 movement_x = 1.0
+
+[node name="Character2" parent="." instance=ExtResource("21_h5vik")]
+position = Vector2(727, -495)
+movement_y = 1.0
 
 [node name="House" parent="." instance=ExtResource("10_s0ksp")]
 position = Vector2(1774, -988)
