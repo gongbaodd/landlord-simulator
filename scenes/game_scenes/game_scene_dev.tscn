@@ -129,7 +129,7 @@ tile_set = ExtResource("2_ifii8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-313, 64)
-zoom = Vector2(0.1, 0.1)
+zoom = Vector2(1, 1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")

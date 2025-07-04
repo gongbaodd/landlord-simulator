@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const speed = 500
 @onready var animation_tree: AnimationTree = get_node("animation").get_node("AnimationTree")
+@onready var animation_player: AnimationPlayer = get_node("animation").get_node("AnimationPlayer")
 
 func _physics_process(_delta: float) -> void:
 	if !GameManager.running_dialog:
