@@ -124,7 +124,7 @@ animation = &"move_down"
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendSpace2D_6fyj8")
 anim_player = NodePath("../AnimationPlayer")
-parameters/blend_position = Vector2(-0.00642401, 0.531599)
+parameters/blend_position = Vector2(0.00172114, 0.117021)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
