@@ -12,24 +12,38 @@ var house_to_buy: String = ""
 var door_states: Dictionary = {
 	"Door": {
 		"has_key": true,
+		"room_count": 4,
+		"tenants": [],
 	},
 	"Door2": {
 		"has_key": false,
+		"room_count": 4,
+		"tenants": [],
 	},
 	"Door3": {
 		"has_key": false,
+		"room_count": 4,
+		"tenants": [],
 	},
 	"Door4": {
 		"has_key": false,
+		"room_count": 4,
+		"tenants": [],
 	},
 	"DoorRed": {
 		"has_key": false,
+		"room_count": 4,
+		"tenants": [],
 	},
 	"DoorRed2": {
 		"has_key": false,
+		"room_count": 4,
+		"tenants": [],
 	},
 	"DoorRed3": {
 		"has_key": false,
+		"room_count": 4,
+		"tenants": [],
 	},
 }
 
@@ -51,6 +65,13 @@ func buy_house():
 
 func is_exp_enough() -> bool:
 	return exp_label.is_exp_enough()
+
+func has_room_left() -> bool:
+	var houses_with_key = door_states.keys().filter(func(key: String): return door_states[key]["has_key"])
+	for house in houses_with_key:
+		if door_states[house]["room_count"] > door_states[house]["tenants"].size():
+			return true
+	return false
 
 func rent_room_with_exp():
 	exp_label.rent_room_with_exp()
