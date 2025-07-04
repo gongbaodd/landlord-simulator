@@ -9,6 +9,7 @@ extends Node2D
 var running_dialog: Node = null
 var house_to_buy: String = ""
 var tenant_to_rent: String = ""
+var room_entered: String = ""
 
 var door_states: Dictionary = {
 	"Door": {
@@ -107,3 +108,10 @@ func is_dialog_points_enough() -> bool:
 
 func reset_dialog_points():
 	dialog_points = 0
+
+func check_if_tenant_rented(tenant_name: String) -> bool:
+	for house in door_states.keys():
+		for tenant in door_states[house]["tenants"]:
+			if tenant == tenant_name:
+				return true
+	return false

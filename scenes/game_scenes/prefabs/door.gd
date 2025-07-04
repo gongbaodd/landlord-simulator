@@ -12,12 +12,15 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if player_inside and Input.is_action_just_pressed("use"):
-		if _check_if_has_key():
-			GameManager.running_dialog = null
-			SceneTransitionManager.change_scene_with_transition(
-				room_scene,
-				transition
-			)
+		if _check_if_has_key(): _enter_room()
+
+func _enter_room() -> void:
+	GameManager.room_entered = name
+	GameManager.running_dialog = null
+	SceneTransitionManager.change_scene_with_transition(
+		room_scene,
+		transition
+	)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

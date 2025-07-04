@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://cbn32gybxcgr2"]
+[gd_scene load_steps=6 format=4 uid="uid://cbn32gybxcgr2"]
 
+[ext_resource type="Script" path="res://scenes/game_scenes/indoor_scene_dev.gd" id="1_0ug4b"]
 [ext_resource type="PackedScene" uid="uid://xsl08vnnq335" path="res://player_room_scene.tscn" id="1_6hdwj"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="2_kmmtm"]
 [ext_resource type="PackedScene" path="res://scenes/scene_transitions/fade_transition.tscn" id="4_tb1gr"]
 [ext_resource type="TileSet" uid="uid://bcsyfd2bqhps" path="res://game_resources/game_scene_dev.tres" id="5_wvmf4"]
 
 [node name="IndoorScene" type="Node2D"]
+script = ExtResource("1_0ug4b")
 
 [node name="Player room scene" parent="." instance=ExtResource("1_6hdwj")]
 position = Vector2(-404, -193)
@@ -19,3 +21,15 @@ position = Vector2(-6, 200)
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAD+//X/AQAMAA4AAAD+//b/AQAMAA8AAAD///X/AQANAA4AAAD///b/AQANAA8AAAAAAPX/AQAOAA4AAAAAAPb/AQAOAA8AAAABAPX/AQAPAA4AAAABAPb/AQAPAA8AAAA=")
 tile_set = ExtResource("5_wvmf4")
+
+[node name="Slot1" type="Marker2D" parent="."]
+position = Vector2(232, 232)
+
+[node name="Slot2" type="Marker2D" parent="."]
+position = Vector2(475, 229)
+
+[node name="Slot3" type="Marker2D" parent="."]
+position = Vector2(771, 269)
+
+[node name="Slot4" type="Marker2D" parent="."]
+position = Vector2(982, 213)

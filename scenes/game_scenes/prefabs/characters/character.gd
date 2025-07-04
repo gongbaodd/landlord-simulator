@@ -15,6 +15,7 @@ var current_target_waypoint_pos = Vector2.ZERO
 var is_waiting := false
 
 func _ready() -> void:
+	if GameManager.check_if_tenant_rented(name): queue_free()
 	call_deferred("_choose_next_waypoint")
 	GameManager.tenant_rented.connect(_on_tenant_rented)
 
