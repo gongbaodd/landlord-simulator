@@ -3,13 +3,15 @@ extends CharacterBody2D
 # @export var movement_x: float = 0
 # @export var movement_y: float = 0
 @export var movement_speed: float = 100.0
+@export var wait_time: float = 1.0
 
-@onready var ground_scene: Node2D = get_parent()
+@onready var ground_scene: = get_parent()
 @onready var waypoints: Array[Marker2D] = ground_scene.waypoints if ground_scene else []
 @onready var animation_tree: AnimationTree = $Animator/AnimationTree if $Animator else null
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 var player_inside := false
 var current_target_waypoint_pos = Vector2.ZERO
+var is_waiting := false
 
 func _ready() -> void:
 	_choose_next_waypoint()
@@ -19,22 +21,34 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("use") and !GameManager.running_dialog:
 			var dialog = DialogueManager.show_example_dialogue_balloon(load("res://scenes/game_scenes/dialogues/character.dialogue"), "start")
 			GameManager.running_dialog = dialog
-	else:
-		pass
-		# velocity = Vector2(movement_x, movement_y) * movement_speed
-		# move_and_slide()
-
-	if animation_tree:
-		pass
-		# animation_tree.set("parameters/blend_position", Vector2(movement_x, movement_y))
 
 func _physics_process(_delta: float) -> void:
-	if nav_agent.is_navigation_finished():
+	if player_inside:
+		velocity = Vector2.ZERO
 		return
+
+	if nav_agent.is_navigation_finished():
+		if is_waiting:
+			velocity = Vector2.ZERO
+			move_and_slide()
+			animation_tree.set("parameters/blend_position", Vector2.ZERO)
+			return
+		else:
+			_on_navigation_target_reached()
+			return
+
 	var next_waypoint_pos = nav_agent.get_next_path_position()
 	var direction = (next_waypoint_pos - position).normalized()
 	velocity = direction * movement_speed
 	move_and_slide()
+	if animation_tree:
+		animation_tree.set("parameters/blend_position", direction)
+
+func _on_navigation_target_reached() -> void:
+	is_waiting = true
+	await get_tree().create_timer(wait_time).timeout
+	is_waiting = false
+	_choose_next_waypoint()
 
 func _choose_next_waypoint() -> void:
 	var random_index: int = randi_range(0, waypoints.size() - 1)
