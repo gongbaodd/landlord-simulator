@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="PackedScene" uid="uid://kjcwkplue3h6" path="res://scenes/game_scenes/prefabs/player/player.tscn" id="2_di5cs"]
 [ext_resource type="TileSet" uid="uid://bcsyfd2bqhps" path="res://game_resources/game_scene_dev.tres" id="2_ifii8"]
-[ext_resource type="PackedScene" uid="uid://xsl08vnnq335" path="res://player_room_scene.tscn" id="6_0geym"]
+[ext_resource type="PackedScene" uid="uid://cbn32gybxcgr2" path="res://scenes/game_scenes/indoor_scene_dev.tscn" id="4_37gnj"]
 [ext_resource type="PackedScene" path="res://scenes/scene_transitions/fade_transition.tscn" id="7_tu12u"]
 [ext_resource type="Resource" uid="uid://c4tanu5rkxvd1" path="res://scenes/game_scenes/dialogues/character1.dialogue" id="9_pkvgv"]
 [ext_resource type="PackedScene" uid="uid://bchg1u2vpawdl" path="res://scenes/game_scenes/prefabs/house.tscn" id="10_s0ksp"]
@@ -93,7 +93,7 @@ tile_set = ExtResource("2_ifii8")
 
 [node name="Door" parent="." instance=ExtResource("20_rp6dp")]
 position = Vector2(-285, -35)
-room_scene = ExtResource("6_0geym")
+room_scene = ExtResource("4_37gnj")
 transition = ExtResource("7_tu12u")
 
 [node name="Camera2D" type="Camera2D" parent="."]

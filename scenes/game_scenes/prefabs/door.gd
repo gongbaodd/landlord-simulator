@@ -1,10 +1,5 @@
 extends Area2D
 
-# @export var dialog_data: DialogueData
-
-@export var closed_color: Color = Color(1, 0, 0)
-@export var open_color: Color = Color(0, 1, 0)
-
 @export var room_scene: PackedScene
 @export var transition: PackedScene
 
@@ -15,6 +10,8 @@ var balloon_scene: Node
 
 func _ready() -> void:
 	_update_door_state()
+	if not room_scene:
+		room_scene = load("res://scenes/game_scenes/game_scene_dev.tscn") # somehow the export doesn't work
 
 func _process(_delta: float) -> void:
 	if player_inside and Input.is_action_just_pressed("use"):
@@ -45,5 +42,4 @@ func _on_body_exited(body: Node2D) -> void:
 @onready var collision_shape: CollisionShape2D = get_node("StaticBody2D/CollisionShape2D")
 
 func _update_door_state() -> void:
-	sprite.modulate = open_color if is_open else closed_color
 	collision_shape.disabled = is_open
