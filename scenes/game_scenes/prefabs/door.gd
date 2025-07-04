@@ -9,7 +9,7 @@ var world_scene := load("res://scenes/game_scenes/game_scene_dev.tscn")
 var buy_house_dialogue := load("res://scenes/game_scenes/dialogues/house.dialogue")
 
 func _ready() -> void:
-	if not room_scene: room_scene = world_scene # somehow the export doesn't work
+	if not room_scene: room_scene = world_scene # will cause circular dependency if used in the export
 
 func _process(_delta: float) -> void:
 	if player_inside and Input.is_action_just_pressed("use"):
