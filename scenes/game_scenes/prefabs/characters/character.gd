@@ -4,6 +4,7 @@ extends CharacterBody2D
 # @export var movement_y: float = 0
 @export var movement_speed: float = 100.0
 @export var wait_time: float = 1.0
+@export var dialogue_data: DialogueResource = load("res://scenes/game_scenes/dialogues/character.dialogue")
 
 @onready var ground_scene: = get_parent()
 @onready var waypoints: Array[Marker2D] = ground_scene.waypoints if ground_scene else []
@@ -19,12 +20,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if player_inside: 
 		if Input.is_action_just_pressed("use") and !GameManager.running_dialog:
-			var dialog = DialogueManager.show_example_dialogue_balloon(load("res://scenes/game_scenes/dialogues/character.dialogue"), "start")
+			var dialog = DialogueManager.show_example_dialogue_balloon(dialogue_data, "start")
 			GameManager.running_dialog = dialog
 
 func _physics_process(_delta: float) -> void:
 	if player_inside:
 		velocity = Vector2.ZERO
+		move_and_slide()
 		return
 
 	if nav_agent.is_navigation_finished():

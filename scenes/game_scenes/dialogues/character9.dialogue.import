@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://b5w2jd5qk5lb2"
+path="res://.godot/imported/character9.dialogue-cd67bb9498629525222279a797d7884e.tres"
+
+[deps]
+
+source_file="res://scenes/game_scenes/dialogues/character9.dialogue"
+dest_files=["res://.godot/imported/character9.dialogue-cd67bb9498629525222279a797d7884e.tres"]
+
+[params]
+
+defaults=true

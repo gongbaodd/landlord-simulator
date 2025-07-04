@@ -1,0 +1,40 @@
+~ start
+Person: Use 10 exp to let me rent your room?
+- Yes [if GameManager.is_exp_enough()]
+	Person: I will rent your room. [do GameManager.rent_room_with_exp()]
+- Bye Bye => END
+- Wait...
+	Person: First question
+	- +30 points answer 
+		Person: ohh [do GameManager.add_dialog_points(30)]
+	- +20 points answer 
+		Person: ohh  [do GameManager.add_dialog_points(20)]
+	- -10 points answer 
+		Person: ohh [do GameManager.add_dialog_points(-10)]
+	- -20 points answer 
+		Person: ohh [do GameManager.add_dialog_points(-20)]
+	Person: Second question
+	- +30 points answer 
+		Person: ohh [do GameManager.add_dialog_points(30)]
+	- +20 points answer 
+		Person: ohh [do GameManager.add_dialog_points(20)]
+	- -10 points answer 
+		Person: ohh [do GameManager.add_dialog_points(-10)]
+	- -20 points answer 
+		Person: ohh [do GameManager.add_dialog_points(-20)]
+	if GameManager.is_dialog_points_enough():
+		Person: I will rent your room. [do GameManager.rent_room()]
+	else:
+		Person: Third question
+		- +30 points answer 
+			Person: ohh [do GameManager.add_dialog_points(30)]
+		- +20 points answer 
+			Person: ohh [do GameManager.add_dialog_points(20)]
+		- -10 points answer 
+			Person: ohh [do GameManager.add_dialog_points(-10)]
+		- -20 points answer 
+			Person: ohh [do GameManager.add_dialog_points(-20)]
+		if GameManager.is_dialog_points_enough():
+			Person: I will rent your room. [do GameManager.rent_room()] [do GameManager.reset_dialog_points()]
+		else:
+			Person: I think I will look for others. [do GameManager.reset_dialog_points()]

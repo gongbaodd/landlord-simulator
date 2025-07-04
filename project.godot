@@ -94,7 +94,7 @@ shoot={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://scenes/game_scenes/dialogues/interact.dialogue", "res://scenes/game_scenes/dialogues/house.dialogue", "res://scenes/game_scenes/dialogues/character.dialogue")
+locale/translations_pot_files=PackedStringArray("res://scenes/game_scenes/dialogues/interact.dialogue", "res://scenes/game_scenes/dialogues/house.dialogue", "res://scenes/game_scenes/dialogues/character.dialogue", "res://scenes/game_scenes/dialogues/character1.dialogue", "res://scenes/game_scenes/dialogues/character2.dialogue", "res://scenes/game_scenes/dialogues/character3.dialogue", "res://scenes/game_scenes/dialogues/character4.dialogue", "res://scenes/game_scenes/dialogues/character5.dialogue", "res://scenes/game_scenes/dialogues/character6.dialogue", "res://scenes/game_scenes/dialogues/character7.dialogue", "res://scenes/game_scenes/dialogues/character8.dialogue", "res://scenes/game_scenes/dialogues/character9.dialogue", "res://scenes/game_scenes/dialogues/character10.dialogue")
 
 [layer_names]
 

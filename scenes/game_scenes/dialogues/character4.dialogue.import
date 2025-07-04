@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://byrnpbnms38fp"
+path="res://.godot/imported/character4.dialogue-551fd439a66687c2d0eb43728d96a8c1.tres"
+
+[deps]
+
+source_file="res://scenes/game_scenes/dialogues/character4.dialogue"
+dest_files=["res://.godot/imported/character4.dialogue-551fd439a66687c2d0eb43728d96a8c1.tres"]
+
+[params]
+
+defaults=true
