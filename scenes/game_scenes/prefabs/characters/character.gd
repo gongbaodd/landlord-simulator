@@ -15,7 +15,7 @@ var current_target_waypoint_pos = Vector2.ZERO
 var is_waiting := false
 
 func _ready() -> void:
-	_choose_next_waypoint()
+	call_deferred("_choose_next_waypoint")
 
 func _process(_delta: float) -> void:
 	if player_inside: 

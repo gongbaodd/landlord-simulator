@@ -1,22 +1,32 @@
-[gd_scene load_steps=20 format=4 uid="uid://mjro4wolswe5"]
+[gd_scene load_steps=30 format=4 uid="uid://mjro4wolswe5"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/game_scene_dev.gd" id="1_aodx8"]
 [ext_resource type="PackedScene" uid="uid://kjcwkplue3h6" path="res://scenes/game_scenes/prefabs/player/player.tscn" id="2_di5cs"]
 [ext_resource type="TileSet" uid="uid://bcsyfd2bqhps" path="res://game_resources/game_scene_dev.tres" id="2_ifii8"]
 [ext_resource type="PackedScene" uid="uid://xsl08vnnq335" path="res://player_room_scene.tscn" id="6_0geym"]
 [ext_resource type="PackedScene" path="res://scenes/scene_transitions/fade_transition.tscn" id="7_tu12u"]
+[ext_resource type="Resource" uid="uid://c4tanu5rkxvd1" path="res://scenes/game_scenes/dialogues/character1.dialogue" id="9_pkvgv"]
 [ext_resource type="PackedScene" uid="uid://bchg1u2vpawdl" path="res://scenes/game_scenes/prefabs/house.tscn" id="10_s0ksp"]
+[ext_resource type="Resource" uid="uid://2luh6fygg5cm" path="res://scenes/game_scenes/dialogues/character2.dialogue" id="11_4o2h1"]
+[ext_resource type="Resource" uid="uid://cicetyxp6h6qa" path="res://scenes/game_scenes/dialogues/character3.dialogue" id="13_shi6f"]
+[ext_resource type="Resource" uid="uid://byrnpbnms38fp" path="res://scenes/game_scenes/dialogues/character4.dialogue" id="15_hrdqp"]
 [ext_resource type="Script" path="res://scripts/camera/camera_targeter.gd" id="15_lp3aw"]
+[ext_resource type="Resource" uid="uid://b1jjlnoxutyb5" path="res://scenes/game_scenes/dialogues/character5.dialogue" id="17_w5dhg"]
+[ext_resource type="Resource" uid="uid://c4p824yur2wqh" path="res://scenes/game_scenes/dialogues/character6.dialogue" id="19_f1u3o"]
 [ext_resource type="PackedScene" uid="uid://dd7qf51nocwgd" path="res://scenes/game_scenes/prefabs/characters/character1.tscn" id="19_giky2"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="20_rp6dp"]
 [ext_resource type="PackedScene" uid="uid://cxylovfglpn68" path="res://scenes/game_scenes/prefabs/characters/character3.tscn" id="21_6imld"]
 [ext_resource type="PackedScene" uid="uid://caahqjcpxx4rf" path="res://scenes/game_scenes/prefabs/characters/character2.tscn" id="21_h5vik"]
+[ext_resource type="Resource" uid="uid://b4r84to2176a6" path="res://scenes/game_scenes/dialogues/character7.dialogue" id="21_j1lee"]
 [ext_resource type="PackedScene" uid="uid://2r7f1mtc8lcl" path="res://scenes/game_scenes/prefabs/characters/character4.tscn" id="22_480o7"]
+[ext_resource type="Resource" uid="uid://cweqbhla4b4d1" path="res://scenes/game_scenes/dialogues/character8.dialogue" id="23_27qb7"]
 [ext_resource type="PackedScene" uid="uid://12glmaq2ufn0" path="res://scenes/game_scenes/prefabs/characters/character5.tscn" id="23_arqc8"]
 [ext_resource type="PackedScene" uid="uid://cuow3hgt72gxm" path="res://scenes/game_scenes/prefabs/characters/character6.tscn" id="24_nhqqu"]
+[ext_resource type="Resource" uid="uid://b5w2jd5qk5lb2" path="res://scenes/game_scenes/dialogues/character9.dialogue" id="25_dbo1c"]
 [ext_resource type="PackedScene" uid="uid://dipk6rynxfnhx" path="res://scenes/game_scenes/prefabs/characters/character7.tscn" id="25_v1ge4"]
 [ext_resource type="PackedScene" uid="uid://bqdvn3bg22tjo" path="res://scenes/game_scenes/prefabs/characters/character8.tscn" id="26_p4w8q"]
 [ext_resource type="PackedScene" uid="uid://dryjwnbpju233" path="res://scenes/game_scenes/prefabs/characters/character9.tscn" id="27_366d3"]
+[ext_resource type="Resource" uid="uid://jy76pckttron" path="res://scenes/game_scenes/dialogues/character10.dialogue" id="27_o2x2x"]
 [ext_resource type="PackedScene" uid="uid://dwivqhsq63mq6" path="res://scenes/game_scenes/prefabs/characters/character10.tscn" id="28_mymu0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_p3djs"]
@@ -88,6 +98,7 @@ transition = ExtResource("7_tu12u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-313, 64)
+zoom = Vector2(0.1, 0.1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -104,33 +115,43 @@ position = Vector2(-313, 64)
 
 [node name="Character1" parent="." instance=ExtResource("19_giky2")]
 position = Vector2(276, 0)
+dialogue_data = ExtResource("9_pkvgv")
 
 [node name="Character2" parent="." instance=ExtResource("21_h5vik")]
 position = Vector2(727, -495)
+dialogue_data = ExtResource("11_4o2h1")
 
 [node name="Character3" parent="." instance=ExtResource("21_6imld")]
 position = Vector2(609, -885)
+dialogue_data = ExtResource("13_shi6f")
 
 [node name="Character4" parent="." instance=ExtResource("22_480o7")]
 position = Vector2(904, -1013)
+dialogue_data = ExtResource("15_hrdqp")
 
 [node name="Character5" parent="." instance=ExtResource("23_arqc8")]
 position = Vector2(342, -328)
+dialogue_data = ExtResource("17_w5dhg")
 
 [node name="Character6" parent="." instance=ExtResource("24_nhqqu")]
 position = Vector2(461, 195)
+dialogue_data = ExtResource("19_f1u3o")
 
 [node name="Character7" parent="." instance=ExtResource("25_v1ge4")]
 position = Vector2(404, -823)
+dialogue_data = ExtResource("21_j1lee")
 
 [node name="Character8" parent="." instance=ExtResource("26_p4w8q")]
 position = Vector2(1308, -1118)
+dialogue_data = ExtResource("23_27qb7")
 
 [node name="Character9" parent="." instance=ExtResource("27_366d3")]
 position = Vector2(999, -752)
+dialogue_data = ExtResource("25_dbo1c")
 
 [node name="Character10" parent="." instance=ExtResource("28_mymu0")]
 position = Vector2(1541, -1027)
+dialogue_data = ExtResource("27_o2x2x")
 
 [node name="House" parent="." instance=ExtResource("10_s0ksp")]
 position = Vector2(1774, -988)
