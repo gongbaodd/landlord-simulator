@@ -16,7 +16,7 @@ func is_exp_enough() -> bool:
 	return experience_count >= exp_needed_to_rent
 
 func rent_room_with_exp() -> void:
-	experience_count -= experience_count
+	experience_count -= exp_needed_to_rent
 	_update_display()
 
 func rent_room() -> void:
