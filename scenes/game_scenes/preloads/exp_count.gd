@@ -2,7 +2,7 @@ extends Label
 
 @export var dialog_control: DialogControl
 
-var experience_count := 100
+var experience_count := 0
 const success_add_exp_count = 5
 const exp_needed_to_rent = 10
 

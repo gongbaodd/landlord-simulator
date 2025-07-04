@@ -69,7 +69,9 @@ func is_exp_enough() -> bool:
 	return exp_label.is_exp_enough()
 
 func has_room_left() -> bool:
-	return pick_room_to_rent() != ""
+	var room_to_rent = pick_room_to_rent()
+	print("room_to_rent: ", room_to_rent)
+	return room_to_rent != ""
 
 func pick_room_to_rent() -> String:
 	var houses_with_key = door_states.keys().filter(func(key: String): return door_states[key]["has_key"])
@@ -93,7 +95,6 @@ signal tenant_rented(tenant_name: String)
 func _send_tenant_to_one_room():
 	var house_to_rent = pick_room_to_rent()
 	door_states[house_to_rent]["tenants"].append(tenant_to_rent)
-	door_states[house_to_rent]["room_count"] -= 1
 	tenant_rented.emit(tenant_to_rent)
 	tenant_to_rent = ""
 

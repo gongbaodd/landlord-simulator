@@ -1,9 +1,9 @@
 ~ start
-Person: Use 10 exp to let me rent your room?
-- Yes [if GameManager.is_exp_enough()]
+Person: Use 10 exp to let me rent your room? [if not GameManager.has_room_left()] Wait! you don't have a room.[/if]
+- Yes [if GameManager.is_exp_enough() and GameManager.has_room_left()]
 	Person: I will rent your room. [do GameManager.rent_room_with_exp()]
 - Bye Bye => END
-- Wait...
+- Wait... [if GameManager.has_room_left()]
 	Person: First question
 	- +30 points answer 
 		Person: ohh [do GameManager.add_dialog_points(30)]
