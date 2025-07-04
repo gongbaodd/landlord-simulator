@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const speed = 500
 @onready var animation_tree: AnimationTree = get_node("animation").get_node("AnimationTree")
-@onready var animation_player: AnimationPlayer = get_node("animation").get_node("AnimationPlayer")
 
 func _physics_process(_delta: float) -> void:
 	if !GameManager.running_dialog:
@@ -10,3 +9,7 @@ func _physics_process(_delta: float) -> void:
 		velocity = direction * speed
 		animation_tree.set("parameters/blend_position", direction)
 		move_and_slide()
+
+func stop_movement() -> void:
+	velocity = Vector2.ZERO
+	animation_tree.set("parameters/blend_position", Vector2.ZERO)
