@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://2jr827ps4sj7" path="res://scenes/game_scenes/prefabs/player/player_animation.tscn" id="2_hun5e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6q7h"]
-radius = 51.8
+radius = 31.0644
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(693, -27)
