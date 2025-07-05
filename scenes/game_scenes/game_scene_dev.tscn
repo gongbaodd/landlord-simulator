@@ -47,7 +47,7 @@ position = Vector2(-260, -1338)
 navigation_polygon = SubResource("NavigationPolygon_p3djs")
 
 [node name="Door" parent="." instance=ExtResource("20_rp6dp")]
-position = Vector2(-198, 318)
+position = Vector2(1022, 271)
 room_scene = ExtResource("4_37gnj")
 transition = ExtResource("7_tu12u")
 
@@ -77,13 +77,14 @@ room_scene = ExtResource("4_37gnj")
 transition = ExtResource("7_tu12u")
 
 [node name="DoorRed3" parent="." instance=ExtResource("20_rp6dp")]
-position = Vector2(1022, 303)
+position = Vector2(-192, 269)
+scale = Vector2(1.8, 1.8)
 room_scene = ExtResource("4_37gnj")
 transition = ExtResource("7_tu12u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-243, 458)
-zoom = Vector2(1, 1)
+zoom = Vector2(0.507463, 0.507463)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
