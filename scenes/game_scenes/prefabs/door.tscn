@@ -15,14 +15,14 @@ script = ExtResource("1_s861w")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3.5, 1)
+shape = SubResource("RectangleShape2D_kdvys")
+
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 visible = false
 modulate = Color(1, 0, 0, 1)
 texture = ExtResource("1_bn4c2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.5, 1)
-shape = SubResource("RectangleShape2D_kdvys")
 
 [node name="Trigger" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 0)
