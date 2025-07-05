@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://3js8lwuys6ub"]
+
+[ext_resource type="FontFile" uid="uid://unq55it0ojkd" path="res://fonts/ZCOOLKuaiLe-Regular.ttf" id="1_4rbb7"]
+
+[resource]
+default_font = ExtResource("1_4rbb7")
+VBoxContainer/constants/separation = 16
