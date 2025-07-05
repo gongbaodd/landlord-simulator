@@ -2,9 +2,9 @@ extends Label
 
 @export var tenant_label: Label
 
-var money_count = 0
+var money_count = 700
 const tenant_money_count = 500
-const house_price = 1500
+const house_price = 2000
 
 func _ready() -> void:
 	_update_display()
