@@ -30,9 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://dwivqhsq63mq6" path="res://scenes/game_scenes/prefabs/characters/character10.tscn" id="28_mymu0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_p3djs"]
-vertices = PackedVector2Array(3021.02, 795, -955.133, 795, -991.867, -1985, 3025.98, -1985)
+vertices = PackedVector2Array(3236.84, 2187.02, -726.883, 2194.97, -696.109, -596, 3195.15, -596)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1002, -1995, -965, 805, 3031, 805, 3036, -1995)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-706, -606, -737, 2205, 3247, 2197, 3205, -606)])
 
 [node name="game_scene_dev" type="Node2D" node_paths=PackedStringArray("waypoints")]
 script = ExtResource("1_aodx8")
@@ -54,6 +54,7 @@ tile_set = ExtResource("2_ifii8")
 navigation_polygon = SubResource("NavigationPolygon_p3djs")
 
 [node name="Door" parent="." instance=ExtResource("20_rp6dp")]
+visible = false
 position = Vector2(1037, 258)
 room_scene = ExtResource("4_37gnj")
 transition = ExtResource("7_tu12u")
@@ -144,8 +145,8 @@ tile_set = ExtResource("2_ifii8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
-position = Vector2(-313, 64)
-zoom = Vector2(0.885286, 0.885286)
+position = Vector2(1284, 1697)
+zoom = Vector2(1, 1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -156,7 +157,7 @@ targets = Array[NodePath]([NodePath("../../Player")])
 [node name="==player==" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_di5cs")]
-position = Vector2(-313, 64)
+position = Vector2(1284, 1697)
 
 [node name="==AI==" type="Node" parent="."]
 
