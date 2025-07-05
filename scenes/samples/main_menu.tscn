@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=28 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
 [ext_resource type="Texture2D" uid="uid://b8yy34kkohqtg" path="res://sprites/ui/Main menu stuff.png" id="1_rpc4y"]
+[ext_resource type="Theme" uid="uid://3js8lwuys6ub" path="res://palette/main_menu_theme.tres" id="3_1ce5p"]
 [ext_resource type="Script" path="res://scripts/ui/audio_menu.gd" id="4_mjs4o"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="6_8dq4u"]
 [ext_resource type="FontFile" uid="uid://unq55it0ojkd" path="res://fonts/ZCOOLKuaiLe-Regular.ttf" id="6_ylr4l"]
@@ -12,6 +13,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwj1a"]
 bg_color = Color(0.929412, 0.901961, 0.784314, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d7420"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8sia"]
 bg_color = Color(0.337255, 0.423529, 0.52549, 1)
@@ -184,17 +187,49 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nwj1a")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(562.5, 419.5)
+[node name="Main Menu" type="AspectRatioContainer" parent="."]
+material = SubResource("CanvasItemMaterial_d7420")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.168
+anchor_right = 0.755
+anchor_bottom = 0.998
+offset_left = -193.536
+offset_right = 281.464
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("6_8dq4u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Main Menu"]
+position = Vector2(574, 419)
 scale = Vector2(1.42969, 1.18197)
 texture = ExtResource("1_rpc4y")
 
-[node name="title" type="Label" parent="."]
+[node name="Menu Control" type="Control" parent="Main Menu" node_paths=PackedStringArray("start_button", "settings_button", "exit_button")]
 layout_mode = 2
-offset_left = 347.0
-offset_top = 193.0
-offset_right = 792.0
-offset_bottom = 320.0
+theme = ExtResource("3_1ce5p")
+script = ExtResource("1_7gw0o")
+start_button = NodePath("MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/start_button")
+settings_button = NodePath("MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/settings_button")
+exit_button = NodePath("MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/exit_button")
+start_scene_path = ExtResource("8_g7og8")
+transition_path = ExtResource("9_ylyfp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu/Menu Control"]
+layout_mode = 2
+offset_right = 766.464
+offset_bottom = 766.464
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/Menu Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Menu/Menu Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="title" type="Label" parent="Main Menu/Menu Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -207,35 +242,23 @@ label_settings = SubResource("LabelSettings_utnyj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Main Menu" type="AspectRatioContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("6_8dq4u")
-
-[node name="Menu Control" type="Control" parent="Main Menu" node_paths=PackedStringArray("start_button", "settings_button", "exit_button")]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Main Menu/Menu Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-script = ExtResource("1_7gw0o")
-start_button = NodePath("../MarginContainer/HBoxContainer/start_button")
-settings_button = NodePath("../MarginContainer/HBoxContainer/settings_button")
-exit_button = NodePath("../MarginContainer/HBoxContainer/exit_button")
-start_scene_path = ExtResource("8_g7og8")
-transition_path = ExtResource("9_ylyfp")
 
-[node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu/Menu Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main Menu/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Menu/Menu Control/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
 theme_override_constants/separation = 25
 
-[node name="start_button" type="Button" parent="Main Menu/MarginContainer/HBoxContainer"]
+[node name="start_button" type="Button" parent="Main Menu/Menu Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_ylr4l")
@@ -243,7 +266,8 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_t6r8p")
 text = "开始"
 
-[node name="load_button" parent="Main Menu/MarginContainer/HBoxContainer" instance=ExtResource("9_ijoqn")]
+[node name="load_button" parent="Main Menu/Menu Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("9_ijoqn")]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -252,7 +276,8 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_g7214")
 text = "继续"
 
-[node name="exit_button" type="Button" parent="Main Menu/MarginContainer/HBoxContainer"]
+[node name="exit_button" type="Button" parent="Main Menu/Menu Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_ylr4l")
@@ -261,7 +286,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_g7214")
 text = "退出
 "
 
-[node name="settings_button" type="Button" parent="Main Menu/MarginContainer/HBoxContainer"]
+[node name="settings_button" type="Button" parent="Main Menu/Menu Control/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_ylr4l")
@@ -284,39 +310,42 @@ script = ExtResource("6_8dq4u")
 
 [node name="Control" type="Control" parent="Settings Menu" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
 layout_mode = 2
+theme = ExtResource("3_1ce5p")
 script = ExtResource("4_mjs4o")
-master_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
-music_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
-sfx_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider3")
+master_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
+music_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
+sfx_slider = NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider3")
 
-[node name="MarginContainer" type="MarginContainer" parent="Settings Menu"]
+[node name="MarginContainer" type="MarginContainer" parent="Settings Menu/Control"]
 layout_mode = 2
+offset_right = 768.0
+offset_bottom = 768.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu/Control/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Settings Menu/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
 label_settings = SubResource("LabelSettings_0qyyl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Settings Menu/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings Menu/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Settings Menu/Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_0bcbq")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Master"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Settings Menu/Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_0bcbq")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -324,19 +353,19 @@ text = "Music
 "
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Settings Menu/Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "SFX
 "
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Settings Menu/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="HSlider" type="HSlider" parent="Settings Menu/Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -344,7 +373,7 @@ theme = ExtResource("1_0bcbq")
 max_value = 1.0
 step = 0.01
 
-[node name="HSlider2" type="HSlider" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="HSlider2" type="HSlider" parent="Settings Menu/Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -352,7 +381,7 @@ theme = ExtResource("1_0bcbq")
 max_value = 1.0
 step = 0.01
 
-[node name="HSlider3" type="HSlider" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="HSlider3" type="HSlider" parent="Settings Menu/Control/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -360,7 +389,7 @@ theme = ExtResource("1_0bcbq")
 max_value = 1.0
 step = 0.01
 
-[node name="Button" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="Settings Menu/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Return"
 
@@ -374,4 +403,4 @@ tree_root = SubResource("AnimationNodeStateMachine_6w8s2")
 advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
 
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Button" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu/Control/MarginContainer/VBoxContainer/Button" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
