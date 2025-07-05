@@ -67,7 +67,7 @@ room_scene = ExtResource("4_37gnj")
 transition = ExtResource("7_tu12u")
 
 [node name="DoorRed" parent="." instance=ExtResource("20_rp6dp")]
-position = Vector2(2180, -746)
+position = Vector2(2096, -743)
 room_scene = ExtResource("4_37gnj")
 transition = ExtResource("7_tu12u")
 
@@ -83,8 +83,8 @@ room_scene = ExtResource("4_37gnj")
 transition = ExtResource("7_tu12u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-243, 458)
-zoom = Vector2(0.507463, 0.507463)
+position = Vector2(1017, 418)
+zoom = Vector2(1, 1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -95,7 +95,7 @@ targets = Array[NodePath]([NodePath("../../Player")])
 [node name="==player==" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_di5cs")]
-position = Vector2(-243, 458)
+position = Vector2(1017, 418)
 
 [node name="==AI==" type="Node" parent="."]
 
