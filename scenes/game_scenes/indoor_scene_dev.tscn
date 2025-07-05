@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://cbn32gybxcgr2"]
+[gd_scene load_steps=9 format=4 uid="uid://cbn32gybxcgr2"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/indoor_scene_dev.gd" id="1_0ug4b"]
 [ext_resource type="PackedScene" uid="uid://xsl08vnnq335" path="res://player_room_scene.tscn" id="1_6hdwj"]
 [ext_resource type="PackedScene" uid="uid://bvqirlofwhl5g" path="res://scenes/game_scenes/prefabs/door.tscn" id="2_kmmtm"]
+[ext_resource type="AudioStream" uid="uid://bapkg7fmi23nf" path="res://audio/dinvhua.mp3" id="2_ktlpg"]
 [ext_resource type="PackedScene" path="res://scenes/scene_transitions/fade_transition.tscn" id="4_tb1gr"]
 [ext_resource type="Texture2D" uid="uid://b0mxd4wl8t3gy" path="res://sprites/common/Player's room-1.png" id="5_0fxpy"]
 
@@ -146,6 +147,12 @@ sources/2 = SubResource("TileSetAtlasSource_llyj0")
 
 [node name="IndoorScene" type="Node2D"]
 script = ExtResource("1_0ug4b")
+
+[node name="Dinvhua" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ktlpg")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [node name="Player room scene" parent="." instance=ExtResource("1_6hdwj")]
 position = Vector2(-404, -193)
