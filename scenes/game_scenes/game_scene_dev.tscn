@@ -43,6 +43,7 @@ metadata/_edit_horizontal_guides_ = [-1995.0, 805.0, -1048.0, -205.0, 186.0, -60
 [node name="==static==" type="Node" parent="."]
 
 [node name="Background tileset" parent="." instance=ExtResource("28_0rti3")]
+position = Vector2(-278, -1347)
 
 [node name="TileMapBackground" type="TileMapLayer" parent="."]
 visible = false
@@ -51,6 +52,7 @@ tile_map_data = PackedByteArray("AAAAAPv/AQABAAEAAAAAAPr/AQABAAAAAAAAAPn/AQABAAE
 tile_set = ExtResource("2_ifii8")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-260, -1338)
 navigation_polygon = SubResource("NavigationPolygon_p3djs")
 
 [node name="Door" parent="." instance=ExtResource("20_rp6dp")]
@@ -145,8 +147,8 @@ tile_set = ExtResource("2_ifii8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
-position = Vector2(1284, 1697)
-zoom = Vector2(0.1, 0.1)
+position = Vector2(-243, 458)
+zoom = Vector2(1, 1)
 
 [node name="CameraTargeter" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("15_lp3aw")
@@ -157,7 +159,7 @@ targets = Array[NodePath]([NodePath("../../Player")])
 [node name="==player==" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_di5cs")]
-position = Vector2(1284, 1697)
+position = Vector2(-243, 458)
 
 [node name="==AI==" type="Node" parent="."]
 
@@ -166,7 +168,7 @@ position = Vector2(276, 0)
 dialogue_data = ExtResource("9_pkvgv")
 
 [node name="Character2" parent="." instance=ExtResource("21_h5vik")]
-position = Vector2(727, -495)
+position = Vector2(1023, -503)
 dialogue_data = ExtResource("11_4o2h1")
 
 [node name="Character3" parent="." instance=ExtResource("21_6imld")]
@@ -174,11 +176,11 @@ position = Vector2(609, -885)
 dialogue_data = ExtResource("13_shi6f")
 
 [node name="Character4" parent="." instance=ExtResource("22_480o7")]
-position = Vector2(904, -1013)
+position = Vector2(530, -1134)
 dialogue_data = ExtResource("15_hrdqp")
 
 [node name="Character5" parent="." instance=ExtResource("23_arqc8")]
-position = Vector2(342, -328)
+position = Vector2(520, -154)
 dialogue_data = ExtResource("17_w5dhg")
 
 [node name="Character6" parent="." instance=ExtResource("24_nhqqu")]
@@ -190,7 +192,7 @@ position = Vector2(404, -823)
 dialogue_data = ExtResource("21_j1lee")
 
 [node name="Character8" parent="." instance=ExtResource("26_p4w8q")]
-position = Vector2(1308, -1118)
+position = Vector2(1248, -729)
 dialogue_data = ExtResource("23_27qb7")
 
 [node name="Character9" parent="." instance=ExtResource("27_366d3")]
@@ -198,7 +200,7 @@ position = Vector2(999, -752)
 dialogue_data = ExtResource("25_dbo1c")
 
 [node name="Character10" parent="." instance=ExtResource("28_mymu0")]
-position = Vector2(1541, -1027)
+position = Vector2(1641, -891)
 dialogue_data = ExtResource("27_o2x2x")
 
 [node name="==waypoints==" type="Node" parent="."]
